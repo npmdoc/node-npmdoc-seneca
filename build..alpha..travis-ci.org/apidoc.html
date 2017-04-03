@@ -1,0 +1,2733 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://senecajs.org"
+
+    >seneca (v3.3.0)</a>
+</h1>
+<h4>A Microservices Framework for Node.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca">module seneca</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.Seneca">
+            function <span class="apidocSignatureSpan">seneca.</span>Seneca
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.logging">
+            function <span class="apidocSignatureSpan">seneca.</span>logging
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.print">
+            function <span class="apidocSignatureSpan">seneca.</span>print
+            <span class="apidocSignatureSpan">(seneca)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.test">
+            function <span class="apidocSignatureSpan">seneca.</span>test
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.use">
+            function <span class="apidocSignatureSpan">seneca.</span>use
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>actions</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>common</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>legacy</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>plugins</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>transport</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.Seneca">module seneca.Seneca</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.Seneca.Seneca">
+            function <span class="apidocSignatureSpan">seneca.</span>Seneca
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.Seneca.super_">
+            function <span class="apidocSignatureSpan">seneca.Seneca.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.actions">module seneca.actions</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.actions.find">
+            function <span class="apidocSignatureSpan">seneca.actions.</span>find
+            <span class="apidocSignatureSpan">(pattern, flags)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.actions.has">
+            function <span class="apidocSignatureSpan">seneca.actions.</span>has
+            <span class="apidocSignatureSpan">(pattern)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.actions.list">
+            function <span class="apidocSignatureSpan">seneca.actions.</span>list
+            <span class="apidocSignatureSpan">(pattern)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.actions.</span>inward</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.actions.</span>outward</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.common">module seneca.common</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.argprops">
+            function <span class="apidocSignatureSpan">seneca.common.</span>argprops
+            <span class="apidocSignatureSpan">(defaults, args, fixed, omits)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.boolify">
+            function <span class="apidocSignatureSpan">seneca.common.</span>boolify
+            <span class="apidocSignatureSpan">(v)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.clean">
+            function <span class="apidocSignatureSpan">seneca.common.</span>clean
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.console_error">
+            function <span class="apidocSignatureSpan">seneca.common.</span>console_error
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.copydata">
+            function <span class="apidocSignatureSpan">seneca.common.</span>copydata
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.deepextend">
+            function <span class="apidocSignatureSpan">seneca.common.</span>deepextend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.delegate">
+            function <span class="apidocSignatureSpan">seneca.common.</span>delegate
+            <span class="apidocSignatureSpan">(scope, func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.make_standard_act_log_entry">
+            function <span class="apidocSignatureSpan">seneca.common.</span>make_standard_act_log_entry
+            <span class="apidocSignatureSpan">(actmeta, msg, origmsg, ctxt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.make_standard_err_log_entry">
+            function <span class="apidocSignatureSpan">seneca.common.</span>make_standard_err_log_entry
+            <span class="apidocSignatureSpan">(err, ctxt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.makedie">
+            function <span class="apidocSignatureSpan">seneca.common.</span>makedie
+            <span class="apidocSignatureSpan">(instance, ctxt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.nil">
+            function <span class="apidocSignatureSpan">seneca.common.</span>nil
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.parsePattern">
+            function <span class="apidocSignatureSpan">seneca.common.</span>parsePattern
+            <span class="apidocSignatureSpan">(instance, args, normaspec, fixed)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.pattern">
+            function <span class="apidocSignatureSpan">seneca.common.</span>pattern
+            <span class="apidocSignatureSpan">(patobj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.pincanon">
+            function <span class="apidocSignatureSpan">seneca.common.</span>pincanon
+            <span class="apidocSignatureSpan">(inpin)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.print">
+            function <span class="apidocSignatureSpan">seneca.common.</span>print
+            <span class="apidocSignatureSpan">(err, out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.recurse">
+            function <span class="apidocSignatureSpan">seneca.common.</span>recurse
+            <span class="apidocSignatureSpan">(list, work, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.common.tagnid">
+            function <span class="apidocSignatureSpan">seneca.common.</span>tagnid
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.legacy">module seneca.legacy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.legacy.fail">
+            function <span class="apidocSignatureSpan">seneca.legacy.</span>fail
+            <span class="apidocSignatureSpan">(so)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.logging">module seneca.logging</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.logging.logging">
+            function <span class="apidocSignatureSpan">seneca.</span>logging
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.logging.preload">
+            function <span class="apidocSignatureSpan">seneca.logging.</span>preload
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.plugins">module seneca.plugins</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.plugins.make_delegate">
+            function <span class="apidocSignatureSpan">seneca.plugins.</span>make_delegate
+            <span class="apidocSignatureSpan">(instance, plugin)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.plugins.register">
+            function <span class="apidocSignatureSpan">seneca.plugins.</span>register
+            <span class="apidocSignatureSpan">(so, callpoint)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">seneca.plugins.</span>api_decorations</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.print">module seneca.print</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.print.print">
+            function <span class="apidocSignatureSpan">seneca.</span>print
+            <span class="apidocSignatureSpan">(seneca)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.print.print_options">
+            function <span class="apidocSignatureSpan">seneca.print.</span>print_options
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.transport">module seneca.transport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.transport.client">
+            function <span class="apidocSignatureSpan">seneca.transport.</span>client
+            <span class="apidocSignatureSpan">(callpoint)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.transport.listen">
+            function <span class="apidocSignatureSpan">seneca.transport.</span>listen
+            <span class="apidocSignatureSpan">(callpoint)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.seneca.util">module seneca.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.argprops">
+            function <span class="apidocSignatureSpan">seneca.util.</span>argprops
+            <span class="apidocSignatureSpan">(defaults, args, fixed, omits)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.clean">
+            function <span class="apidocSignatureSpan">seneca.util.</span>clean
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.copydata">
+            function <span class="apidocSignatureSpan">seneca.util.</span>copydata
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.deepextend">
+            function <span class="apidocSignatureSpan">seneca.util.</span>deepextend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.nil">
+            function <span class="apidocSignatureSpan">seneca.util.</span>nil
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.parsepattern">
+            function <span class="apidocSignatureSpan">seneca.util.</span>parsepattern
+            <span class="apidocSignatureSpan">(instance, args, normaspec, fixed)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.pattern">
+            function <span class="apidocSignatureSpan">seneca.util.</span>pattern
+            <span class="apidocSignatureSpan">(patobj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.pincanon">
+            function <span class="apidocSignatureSpan">seneca.util.</span>pincanon
+            <span class="apidocSignatureSpan">(inpin)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.print">
+            function <span class="apidocSignatureSpan">seneca.util.</span>print
+            <span class="apidocSignatureSpan">(err, out)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.recurse">
+            function <span class="apidocSignatureSpan">seneca.util.</span>recurse
+            <span class="apidocSignatureSpan">(list, work, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.seneca.util.router">
+            function <span class="apidocSignatureSpan">seneca.util.</span>router
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca" id="apidoc.module.seneca">module seneca</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.Seneca" id="apidoc.element.seneca.Seneca">
+        function <span class="apidocSignatureSpan">seneca.</span>Seneca
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Seneca() {
+  Events.EventEmitter.call(this)
+  this.setMaxListeners(0)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.logging" id="apidoc.element.seneca.logging">
+        function <span class="apidocSignatureSpan">seneca.</span>logging
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function logging(options) {
+  // Everything is in preload as logging plugins are
+  // a special case that need to be loaded before any calls to seneca.log.
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.print" id="apidoc.element.seneca.print">
+        function <span class="apidocSignatureSpan">seneca.</span>print
+        <span class="apidocSignatureSpan">(seneca)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (seneca) {
+  var argv = Minimist(process.argv.slice(2))
+  if (!argv || !argv.seneca) {
+    return
+  }
+  var cmdspec = argv.seneca
+  if (cmdspec.print) {
+    if (cmdspec.print.tree) {
+      // Hack! Complex init means non-deterministic or multiple ready calls,
+      // so just delay tree print by some number of seconds to capture full tree.
+      var delay_seconds = cmdspec.print.tree.all || cmdspec.print.tree
+      if (_.isNumber(delay_seconds)) {
+        setTimeout(function () {
+          print_tree(seneca, cmdspec)
+        }, 1000 * delay_seconds)
+      }
+      else {
+        // Print after first ready
+        seneca.ready(function () {
+          print_tree(this, cmdspec)
+        })
+      }
+    }
+
+    if (cmdspec.print.options) {
+      seneca.options({ debug: { print: { options: true } } })
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.test" id="apidoc.element.seneca.test">
+        function <span class="apidocSignatureSpan">seneca.</span>test
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function top_test() {
+  var argsarr = new Array(arguments.length)
+  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+  var instance = module.exports({test: true, log: &#x27;test&#x27;})
+  instance.test.apply(instance, argsarr)
+
+  return instance
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+var instance = module.exports()
+
+return instance.use.apply(instance, argsarr)
+}
+
+// Makes require(&#x27;seneca&#x27;).<span class="apidocCodeKeywordSpan">test</span>() work.
+module.exports.test = function top_test () {
+var argsarr = new Array(arguments.length)
+for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+var instance = module.exports({test: true, log: &#x27;test&#x27;})
+instance.test.apply(instance, argsarr)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.use" id="apidoc.element.seneca.use">
+        function <span class="apidocSignatureSpan">seneca.</span>use
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function top_use() {
+  var argsarr = new Array(arguments.length)
+  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+  var instance = module.exports()
+
+  return instance.use.apply(instance, argsarr)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+// Services can listen for messages using a variety of
+// transports. In process and http are included by default.
+
+
+Seneca()
+.<span class="apidocCodeKeywordSpan">use</span>(approver)
+.listen({type: &#x27;http&#x27;, port: &#x27;8260&#x27;, pin: &#x27;cmd:*&#x27;})
+
+Seneca()
+.use(rejector)
+.listen(8270)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.Seneca" id="apidoc.module.seneca.Seneca">module seneca.Seneca</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.Seneca.Seneca" id="apidoc.element.seneca.Seneca.Seneca">
+        function <span class="apidocSignatureSpan">seneca.</span>Seneca
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Seneca() {
+  Events.EventEmitter.call(this)
+  this.setMaxListeners(0)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.Seneca.super_" id="apidoc.element.seneca.Seneca.super_">
+        function <span class="apidocSignatureSpan">seneca.Seneca.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.actions" id="apidoc.module.seneca.actions">module seneca.actions</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.actions.find" id="apidoc.element.seneca.actions.find">
+        function <span class="apidocSignatureSpan">seneca.actions.</span>find
+        <span class="apidocSignatureSpan">(pattern, flags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (pattern, flags) {
+  var seneca = this
+
+  var pat = _.isString(pattern) ? Jsonic(pattern) : pattern
+  pat = seneca.util.clean(pat)
+  pat = pat || {}
+
+  var actmeta = seneca.private$.actrouter.find(pat)
+
+  if (!actmeta &#x26;&#x26; flags &#x26;&#x26; flags.catchall) {
+    actmeta = seneca.private$.actrouter.find({})
+  }
+
+  return actmeta
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      private$.handle_sub = function handle_sub (args, result) {
+        args.meta$ = args.meta$ || {}
+
+        if (!args.meta$.prior || !args.meta$.prior.entry) {
+return
+        }
+
+        var subfuncs = private$.subrouter.<span class="apidocCodeKeywordSpan">find</span>(args)
+
+        if (subfuncs) {
+args.meta$.sub = subfuncs.pattern
+
+_.each(subfuncs, function subfunc (subfunc) {
+  try {
+    subfunc.call(self, args, result)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.actions.has" id="apidoc.element.seneca.actions.has">
+        function <span class="apidocSignatureSpan">seneca.actions.</span>has
+        <span class="apidocSignatureSpan">(pattern)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (pattern) {
+  return !!exports.find.call(this, pattern)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.actions.list" id="apidoc.element.seneca.actions.list">
+        function <span class="apidocSignatureSpan">seneca.actions.</span>list
+        <span class="apidocSignatureSpan">(pattern)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function (pattern) {
+  var pat = _.isString(pattern) ? Jsonic(pattern) : pattern
+  var found = this.private$.actrouter.list(pat)
+  found = _.map(found, &#x27;match&#x27;)
+  return found
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+var pins = []
+var patterns = _.flatten(argsarr)
+
+_.each(patterns, function (pattern) {
+  pattern = _.isString(pattern) ? Jsonic(pattern) : pattern
+  pins = pins.concat(_.map(private$.actrouter.<span class="apidocCodeKeywordSpan">list</span>(pattern),
+    function (desc) {
+      return desc.match
+    }
+  ))
+})
+
+return pins
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.common" id="apidoc.module.seneca.common">module seneca.common</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.argprops" id="apidoc.element.seneca.common.argprops">
+        function <span class="apidocSignatureSpan">seneca.common.</span>argprops
+        <span class="apidocSignatureSpan">(defaults, args, fixed, omits)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function argprops(defaults, args, fixed, omits) {
+  omits = _.isArray(omits) ? omits
+    : _.isObject(omits) ? _.keys(omits)
+    : _.isString(omits) ? omits.split(/\s*,\s*/)
+    : &#x27;&#x27; + omits
+
+  // a little pre omit to avoid entities named in omits
+  var usedargs = _.omit(args, omits)
+
+  // don&#x27;t support $ args
+  usedargs = clean(usedargs)
+
+  return _.omit(deepextend(defaults, usedargs, fixed), omits)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.boolify" id="apidoc.element.seneca.common.boolify">
+        function <span class="apidocSignatureSpan">seneca.common.</span>boolify
+        <span class="apidocSignatureSpan">(v)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">boolify = function (v) {
+  try {
+    return !!JSON.parse(v)
+  }
+  catch (e) {
+    return !!v
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    sourcemap.argv
+  )
+
+  // Legacy log settings.
+  out.log = out.log || out.logger || out.logging || {}
+
+  // boolean corrections
+  out.legacy.logging = Common.<span class="apidocCodeKeywordSpan">boolify</span>(out.legacy.logging)
+
+  return out
+}
+
+
+function parse_command_line (spec, parsedSpec) {
+  var logSpec = _.isArray(spec) ? spec[0] : spec
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.clean" id="apidoc.element.seneca.common.clean">
+        function <span class="apidocSignatureSpan">seneca.common.</span>clean
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clean(obj) {
+  if (obj === null) return obj
+
+  return _.pickBy(obj, function (val, prop) {
+    return !_.includes(prop, &#x27;$&#x27;)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // See [`seneca.add`](#seneca.add)
+  function api_add () {
+var self = this
+var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+
+var raw_pattern = args.pattern
+
+var pattern = self.util.<span class="apidocCodeKeywordSpan">clean</span>(raw_pattern)
+
+if (!_.keys(pattern)) {
+  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+}
+
+
+var action = args.action || function default_action (msg, done) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.console_error" id="apidoc.element.seneca.common.console_error">
+        function <span class="apidocSignatureSpan">seneca.common.</span>console_error
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">console_error = function () {
+  console.error.apply(null, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    })
+  })
+}
+
+var handleClose = function () {
+  root.close(function (err) {
+    if (err) {
+      Common.<span class="apidocCodeKeywordSpan">console_error</span>(err)
+    }
+
+    process.exit(err ? (err.exit === null ? 1 : err.exit) : 0)
+  })
+}
+
+// close seneca instance
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.copydata" id="apidoc.element.seneca.common.copydata">
+        function <span class="apidocSignatureSpan">seneca.common.</span>copydata
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copydata = function (obj) {
+  var copy
+
+  // Handle the 3 simple types, and null or undefined
+  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+
+  // Handle Date
+  if (_.isDate(obj)) {
+    copy = new Date()
+    copy.setTime(obj.getTime())
+    return copy
+  }
+
+  // Handle Array
+  if (_.isArray(obj)) {
+    copy = []
+    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+      copy[i] = copydata(obj[i])
+    }
+    return copy
+  }
+
+  // Handle Object
+  if (_.isObject(obj)) {
+    copy = {}
+    for (var attr in obj) {
+      if (obj.hasOwnProperty(attr)) copy[attr] = copydata(obj[attr])
+    }
+    return copy
+  }
+
+  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function action_options_get (args, done) {
+  var options = private$.optioner.get()
+
+  var base = args.base || null
+  var root = base ? (options[base] || {}) : options
+  var val = args.key ? root[args.key] : root
+
+  done(null, Common.<span class="apidocCodeKeywordSpan">copydata</span>(val))
+}
+
+_.each(so.internal.close_signals, function (active, signal) {
+  if (active) {
+    process.once(signal, handleClose)
+  }
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.deepextend" id="apidoc.element.seneca.common.deepextend">
+        function <span class="apidocSignatureSpan">seneca.common.</span>deepextend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deepextend() {
+  var argsarr = new Array(arguments.length)
+  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+  // Lodash uses the reverse order to apply defaults than the deepextend API.
+  argsarr = argsarr.reverse()
+
+  // Add an empty object to the front of the args.  Defaults will be written
+  // to this empty object.
+  argsarr.unshift({})
+
+  return _.defaultsDeep.apply(_, argsarr)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  callpoint: callpoint
+})
+
+root.util = seneca_util
+
+
+// Configure logging
+private$.exports = { options: Common.<span class="apidocCodeKeywordSpan">deepextend</span>({}, so) }
+private$.decorations = {}
+
+private$.logger = load_logger(root, so.internal.logger)
+root.log = make_log(root, default_log_modifier)
+
+
+// Error events are fatal, unless you&#x27;re undead.  These are not the
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.delegate" id="apidoc.element.seneca.common.delegate">
+        function <span class="apidocSignatureSpan">seneca.common.</span>delegate
+        <span class="apidocSignatureSpan">(scope, func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delegate = function (scope, func) {
+  var args = Array.prototype.slice.call(arguments, 2)
+  return function () {
+    return func.apply(scope, args.concat(Array.prototype.slice.call(arguments)))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var is_sync = _.isFunction(actdone)
+var execute_instance = instance
+var timedout = false
+
+actdone = actdone || _.noop
+
+if (msg.gate$) {
+  execute_instance = instance.<span class="apidocCodeKeywordSpan">delegate</span>()
+  execute_instance.private$.ge =
+    execute_instance.private$.ge.gate()
+}
+
+var execspec = {
+  fn: function act_fn (done) {
+    try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.make_standard_act_log_entry" id="apidoc.element.seneca.common.make_standard_act_log_entry">
+        function <span class="apidocSignatureSpan">seneca.common.</span>make_standard_act_log_entry
+        <span class="apidocSignatureSpan">(actmeta, msg, origmsg, ctxt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">make_standard_act_log_entry = function (actmeta, msg, origmsg, ctxt) {
+  var transport = origmsg.transport$ || {}
+  var callmeta = msg.meta$ || {}
+  var prior = callmeta.prior || {}
+  actmeta = actmeta || {}
+
+  return _.extend({
+    actid: callmeta.id,
+    msg: msg,
+    entry: prior.entry,
+    prior: prior.chain,
+    gate: origmsg.gate$,
+    caller: origmsg.caller$,
+    meta: actmeta,
+
+    // these are transitional as need to be updated
+    // to standard transport metadata
+    client: actmeta.client,
+    listen: !!transport.origin,
+    transport: transport
+  }, ctxt)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.make_standard_err_log_entry" id="apidoc.element.seneca.common.make_standard_err_log_entry">
+        function <span class="apidocSignatureSpan">seneca.common.</span>make_standard_err_log_entry
+        <span class="apidocSignatureSpan">(err, ctxt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">make_standard_err_log_entry = function (err, ctxt) {
+  if (!err) return ctxt
+
+  return _.extend({
+    notice: err.message,
+    code: err.code,
+    err: err
+  }, ctxt)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+}
+
+var err = internals.error.apply(null, argsarr)
+err.callpoint = new Error().stack.match(/^.*\n.*\n\s*(.*)/)[1]
+err.seneca = { code: err.code, valmap: err.details }
+
+this.log.error(Common.<span class="apidocCodeKeywordSpan">make_standard_err_log_entry</span>(err))
+if (so.errhandler) {
+  so.errhandler.call(this, err)
+}
+
+if (cb) {
+  cb.call(this, err)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.makedie" id="apidoc.element.seneca.common.makedie">
+        function <span class="apidocSignatureSpan">seneca.common.</span>makedie
+        <span class="apidocSignatureSpan">(instance, ctxt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makedie = function (instance, ctxt) {
+  ctxt = _.extend(ctxt, instance.die ? instance.die.context : {})
+
+  var die = function (err) {
+    var die_trace = &#x27;\n&#x27; + (new Error(&#x27;die trace&#x27;).stack)
+        .match(/^.*?\n.*\n(.*)/)[1]
+
+    try {
+      if (!err) {
+        err = new Error(&#x27;unknown&#x27;)
+      }
+      else if (!Util.isError(err)) {
+        err = new Error(_.isString(err) ? err : Util.inspect(err))
+      }
+
+      err.fatal$ = true
+
+      var so = instance.options()
+
+      // undead is only for testing, do not use in production
+      var undead = (so.debug &#x26;&#x26; so.debug.undead) || (err &#x26;&#x26; err.undead)
+
+      var logdesc = {
+        kind: ctxt.txt,
+        plugin: ctxt.plugin,
+        tag: ctxt.tag,
+        id: ctxt.id,
+        code: err.code,
+        notice: err.message,
+        err: err,
+        callpoint: ctxt.callpoint()
+      }
+
+      instance.log.fatal.apply(instance, logdesc)
+
+      var stack = err.stack || &#x27;&#x27;
+      stack = stack.replace(/^.*?\n/, &#x27;\n&#x27;)
+
+      var procdesc = &#x27;\n  pid=&#x27; + process.pid +
+        &#x27;, arch=&#x27; + process.arch +
+        &#x27;, platform=&#x27; + process.platform +
+        &#x27;,\n  path=&#x27; + process.execPath +
+        &#x27;,\n  argv=&#x27; + Util.inspect(process.argv).replace(/\n/g, &#x27;&#x27;) +
+        &#x27;,\n  env=&#x27; + Util.inspect(process.env).replace(/\n/g, &#x27;&#x27;)
+
+      var fatalmodemsg = instance.fixedargs.fatal$
+        ? &#x27;\n  ALL ERRORS FATAL: action called with argument fatal$:true &#x27; +
+        &#x27;(probably a plugin init error, or using a plugin seneca instance)&#x27; : &#x27;&#x27;
+
+      var stderrmsg =
+      &#x27;\n\n&#x27; +
+        &#x27;Seneca Fatal Error\n&#x27; +
+        &#x27;==================\n\n&#x27; +
+        &#x27;Message: &#x27; + err.message + &#x27;\n\n&#x27; +
+        &#x27;Code: &#x27; + err.code + &#x27;\n\n&#x27; +
+        &#x27;Details: &#x27; + Util.inspect(err.details, {depth: null}) + &#x27;\n\n&#x27; +
+        &#x27;Stack: &#x27; + stack + &#x27;\n\n&#x27; +
+        &#x27;Instance: &#x27; + instance.toString() + fatalmodemsg + die_trace + &#x27;\n\n&#x27; +
+        &#x27;When: &#x27; + new Date().toISOString() + &#x27;\n\n&#x27; +
+        &#x27;Log: &#x27; + Jsonic.stringify(logdesc) + &#x27;\n\n&#x27; +
+        &#x27;Node:\n  &#x27; + Util.inspect(process.versions).replace(/\s+/g, &#x27; &#x27;) +
+        &#x27;,\n  &#x27; + Util.inspect(process.features).replace(/\s+/g, &#x27; &#x27;) +
+        &#x27;,\n  &#x27; + Util.inspect(process.moduleLoadList).replace(/\s+/g, &#x27; &#x27;) + &#x27;\n\n&#x27; +
+        &#x27;Process: &#x27; + procdesc + &#x27;\n\n&#x27;
+
+      if (so.errhandler) {
+        so.errhandler.call(instance, err)
+      }
+
+      if (instance.closed) {
+        return
+      }
+
+      if (!undead) {
+        instance.act(&#x27;role:seneca,info:fatal,closing$:true&#x27;, {err: err})
+
+        instance.close(
+          // terminate process, err (if defined) is from seneca.close
+          function (err) {
+            if (!undead) {
+              process.nextTick(function () {
+                if (err) {
+                  exports.console_error(err)
+                }
+
+                exports.console_error(stderrmsg)
+                exports.console_error(&#x27;\n\nSENECA TERMINATED at &#x27; + (new Date().toISOString()) +
+                  &#x27;. See above for error report.\n\n&#x27;)
+                process.exit(1)
+              })
+            }
+          }
+       )
+      }
+
+      // make sure we close down within options.deathdelay seconds
+      if (!undead) {
+        var killtimer = setTimeout(function () {
+          exports.console_error(stderrmsg)
+          exports.console_error(&#x27;\n\nSENECA TERMINATED (on timeout) at &#x27; +
+            (new Date().toISOString()) + &#x27;.\n\n&#x27;)
+          process.exit(2)
+        }, so.deathdelay)
+        killtimer.unref()
+      }
+    }
+    catch (panic) {
+      var msg =
+      &#x27;\n\n&#x27; +
+        &#x27;Seneca Panic\n&#x27; +
+        &#x27;============\n\n&#x27; +
+        panic.stack +
+        &#x27;\n\nOriginal Error:\n&#x27; +
+        (arguments[0] &#x26;&#x26; arguments[0].stack ? arguments[0].stack : arguments[0])
+      exports.console_error(msg)
+    }
+  }
+
+  die.context = ctxt
+
+  return die
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  so.idlen = 2
+  root.idgen = Nid({length: so.idlen})
+  root.id = root.idgen() + &#x27;/&#x27; + so.tag
+}
+
+root.fullname = &#x27;Seneca/&#x27; + root.id
+
+root.die = Common.<span class="apidocCodeKeywordSpan">makedie</span>(root, {
+  type: &#x27;sys&#x27;,
+  plugin: &#x27;seneca&#x27;,
+  tag: root.version,
+  id: root.id,
+  callpoint: callpoint
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.nil" id="apidoc.element.seneca.common.nil">
+        function <span class="apidocSignatureSpan">seneca.common.</span>nil
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function nil() {
+  _.each(arguments, function (arg) {
+    if (_.isFunction(arg)) {
+      return arg()
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.parsePattern" id="apidoc.element.seneca.common.parsePattern">
+        function <span class="apidocSignatureSpan">seneca.common.</span>parsePattern
+        <span class="apidocSignatureSpan">(instance, args, normaspec, fixed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
+  args =
+    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+
+  try {
+    return _.extend(
+      args,
+      { pattern: _.extend(
+          {},
+
+          // Precedence of arguments in add,act is left-to-right
+          args.moreobjargs ? args.moreobjargs : {},
+          args.objargs ? args.objargs : {},
+          args.strargs ? Jsonic(args.strargs) : {},
+
+          fixed || {})
+      })
+  }
+  catch (e) {
+    var col = (e.line === 1) ? e.column - 1 : e.column
+    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+      argstr: args,
+      syntax: e.message,
+      line: e.line,
+      col: col
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return exportval
+  }
+
+  function api_sub () {
+var self = this
+
+var subargs = Common.<span class="apidocCodeKeywordSpan">parsePattern</span>(self, arguments, &#x27;action:f actmeta:o?&#x27;)
+var pattern = subargs.pattern
+if (pattern.in$ == null &#x26;&#x26;
+  pattern.out$ == null &#x26;&#x26;
+  pattern.error$ == null &#x26;&#x26;
+  pattern.cache$ == null &#x26;&#x26;
+  pattern.default$ == null &#x26;&#x26;
+  pattern.client$ == null) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.pattern" id="apidoc.element.seneca.common.pattern">
+        function <span class="apidocSignatureSpan">seneca.common.</span>pattern
+        <span class="apidocSignatureSpan">(patobj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pattern(patobj) {
+  if (_.isString(patobj)) {
+    return patobj
+  }
+
+  patobj = patobj || {}
+  var sb = []
+  _.each(patobj, function (v, k) {
+    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
+      sb.push(k + &#x27;:&#x27; + v)
+    }
+  })
+
+  sb.sort()
+
+  return sb.join(&#x27;,&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      handle_sub(args, result)
+    }
+  }
+
+  var subs = private$.subrouter.find(pattern)
+  if (!subs) {
+    private$.subrouter.add(pattern, subs = [])
+    subs.pattern = Common.<span class="apidocCodeKeywordSpan">pattern</span>(pattern)
+  }
+  subs.push(subargs.action)
+
+  return self
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.pincanon" id="apidoc.element.seneca.common.pincanon">
+        function <span class="apidocSignatureSpan">seneca.common.</span>pincanon
+        <span class="apidocSignatureSpan">(inpin)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pincanon(inpin) {
+  if (_.isString(inpin)) {
+    return pattern(Jsonic(inpin))
+  }
+  else if (_.isArray(inpin)) {
+    var pin = _.map(inpin, pincanon)
+    pin.sort()
+    return pin.join(&#x27;;&#x27;)
+  }
+  else {
+    return pattern(inpin)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+
+var opts = self.options(null).transport || {}
+
+var raw_config = internals.parse_config(argsarr)
+
+// pg: pin group
+raw_config.pg = Common.<span class="apidocCodeKeywordSpan">pincanon</span>(raw_config.pin || raw_config.pins)
+
+var config = internals.resolveConfig(raw_config, opts)
+
+config.id = config.id || Common.pattern(raw_config)
+
+var pins = config.pins ||
+      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.print" id="apidoc.element.seneca.common.print">
+        function <span class="apidocSignatureSpan">seneca.common.</span>print
+        <span class="apidocSignatureSpan">(err, out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
+  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  else { console.log(Util.inspect(out, {depth: null})) }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.recurse" id="apidoc.element.seneca.common.recurse">
+        function <span class="apidocSignatureSpan">seneca.common.</span>recurse
+        <span class="apidocSignatureSpan">(list, work, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function recurse(list, work, done) {
+  var ctxt = this
+
+  if (_.isNumber(list)) {
+    list = _.range(0, list)
+  }
+  else {
+    list = _.clone(list)
+  }
+
+  function next (err, out) {
+    if (err) return done(err, out)
+
+    var item = list.shift()
+
+    if (void 0 !== item) {
+      work.call(ctxt, item, next)
+    }
+    else {
+      done.call(ctxt, err, out)
+    }
+  }
+  next.call(ctxt)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.common.tagnid" id="apidoc.element.seneca.common.tagnid">
+        function <span class="apidocSignatureSpan">seneca.common.</span>tagnid
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tagnid = function () {
+    return generate(opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.legacy" id="apidoc.module.seneca.legacy">module seneca.legacy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.legacy.fail" id="apidoc.element.seneca.legacy.fail">
+        function <span class="apidocSignatureSpan">seneca.legacy.</span>fail
+        <span class="apidocSignatureSpan">(so)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function make_legacy_fail(so) {
+  return function () {
+    var argsarr = new Array(arguments.length)
+    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+    var cb = _.isFunction(argsarr[argsarr.length - 1])
+      ? argsarr[argsarr.length - 1] : null
+
+    if (cb) {
+      argsarr.pop()
+    }
+
+    if (_.isObject(argsarr[0])) {
+      var code = argsarr[0].code
+      if (_.isString(code)) {
+        argsarr.unshift(code)
+      }
+    }
+
+    var err = internals.error.apply(null, argsarr)
+    err.callpoint = new Error().stack.match(/^.*\n.*\n\s*(.*)/)[1]
+    err.seneca = { code: err.code, valmap: err.details }
+
+    this.log.error(Common.make_standard_err_log_entry(err))
+    if (so.errhandler) {
+      so.errhandler.call(this, err)
+    }
+
+    if (cb) {
+      cb.call(this, err)
+    }
+
+    return err
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+root.fix = api_fix
+root.delegate = api_delegate
+
+// Legacy API; Deprecated.
+root.findact = root.find
+
+// DEPRECATED
+root.fail = Legacy.<span class="apidocCodeKeywordSpan">fail</span>(so)
+
+// Identifier generator.
+root.idgen = Nid({length: so.idlen})
+so.tag = so.tag || option_defaults.tag
+so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
+
+// Create a unique identifer for this instance.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.logging" id="apidoc.module.seneca.logging">module seneca.logging</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.logging.logging" id="apidoc.element.seneca.logging.logging">
+        function <span class="apidocSignatureSpan">seneca.</span>logging
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function logging(options) {
+  // Everything is in preload as logging plugins are
+  // a special case that need to be loaded before any calls to seneca.log.
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.logging.preload" id="apidoc.element.seneca.logging.preload">
+        function <span class="apidocSignatureSpan">seneca.logging.</span>preload
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">preload = function () {
+  var seneca = this
+  var so = seneca.options()
+  var logspec = so.log.basic || so.log || {}
+
+  var origspec = logspec
+
+  if (_.isString(logspec)) {
+    if (&#x27;quiet&#x27; === logspec) {
+      logspec = {level: &#x27;none&#x27;}
+    }
+    else if (&#x27;silent&#x27; === logspec) {
+      logspec = {level: &#x27;none&#x27;}
+    }
+    else if (&#x27;any&#x27; === logspec) {
+      logspec = {level: &#x27;debug+&#x27;}
+    }
+    else if (&#x27;all&#x27; === logspec) {
+      logspec = {level: &#x27;debug+&#x27;}
+    }
+    else if (&#x27;print&#x27; === logspec) {
+      logspec = {level: &#x27;debug+&#x27;}
+    }
+    else if (&#x27;standard&#x27; === logspec) {
+      logspec = {level: &#x27;info+&#x27;}
+    }
+    else if (&#x27;test&#x27; === logspec) {
+      logspec = {level: &#x27;warn+&#x27;}
+    }
+  }
+
+  var logrouter = LogFilter(logspec)
+
+  var logger = function (seneca, data) {
+    if (logrouter(data)) {
+      console.log(Stringify(data))
+    }
+  }
+
+  // Test mode prints more readable logs
+  if (so.test) {
+    logger = function (seneca, data) {
+      if (logrouter(data)) {
+        try {
+          var logstr
+          var time = data.when - seneca.start_time
+
+          if (&#x27;test&#x27; === origspec || &#x27;print&#x27; === origspec) {
+            var logb = [
+              time + &#x27;/&#x27; + seneca.id.substring(0, 2),
+              data.kind + (data.case ? &#x27;/&#x27; + data.case : &#x27;&#x27;)]
+
+            if (&#x27;act&#x27; === data.kind) {
+              if (data.msg) {
+                logb.push(data.msg.meta$.id.split(&#x27;/&#x27;).map(function (s) {
+                  return s.substring(0, 2)
+                }).join(&#x27;/&#x27;))
+
+                logb.push(data.msg.meta$.pattern)
+              }
+
+              logb.push(Util.inspect(seneca.util.clean(data.result || data.msg))
+                        .replace(/\s+/g, &#x27;&#x27;)
+                        .substring(0, 88))
+
+              if (data.notice) {
+                logb.push(data.notice)
+              }
+
+              if (&#x27;ERR&#x27; === data.case) {
+                logb.push(&#x27;\n\n&#x27; + data.err.stack + &#x27;\n&#x27; + data.caller + &#x27;\n&#x27;)
+              }
+            }
+            else if (&#x27;add&#x27; === data.kind) {
+              logb.push(data.pattern)
+            }
+            else if (&#x27;plugin&#x27; === data.kind) {
+              logb.push(data.plugin_name +
+                        (data.plugin_tag ? &#x27;/&#x27; + data.plugin_tag : &#x27;&#x27;))
+            }
+            else if (&#x27;options&#x27; === data.kind) {
+            }
+            else if (&#x27;notice&#x27; === data.kind) {
+              logb.push(data.notice)
+            }
+            else {
+              logb.push(Util.inspect(data).replace(/\n/g, &#x27; &#x27;))
+            }
+
+            logstr = logb.join(&#x27;\t&#x27;)
+          }
+          else {
+            logstr = Util.inspect(data, {depth: null})
+            logstr =
+              time + &#x27;:\n\t&#x27; +
+              logstr.replace(/\n/g, &#x27;\n\t&#x27;) +
+              &#x27;\n------------------------------------------------\n\n&#x27;
+          }
+
+          console.log(logstr)
+        }
+        catch (e) {
+          console.log(data)
+        }
+      }
+    }
+  }
+
+  return {
+    extend: {
+      logger: logger
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.plugins" id="apidoc.module.seneca.plugins">module seneca.plugins</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.plugins.make_delegate" id="apidoc.element.seneca.plugins.make_delegate">
+        function <span class="apidocSignatureSpan">seneca.plugins.</span>make_delegate
+        <span class="apidocSignatureSpan">(instance, plugin)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function make_delegate(instance, plugin) {
+  // Adjust Seneca API to be plugin specific.
+  var delegate = instance.delegate({
+    plugin$: {
+      name: plugin.name,
+      tag: plugin.tag
+    },
+
+    // Act calls inside the plugin definition function are not gated.
+    // ungate$: true,
+    fatal$: true
+  })
+
+  delegate.plugin_foo = true
+
+  delegate.private$ = Object.create(instance.private$)
+  delegate.private$.ge = delegate.private$.ge.gate()
+
+  delegate.log = instance.make_log(
+    delegate,
+    function plugin_delegate_log_modifier (data) {
+      data.plugin_name = plugin.name
+      data.plugin_tag = plugin.tag
+    })
+
+  delegate.die = Common.makedie(delegate, { type: &#x27;plugin&#x27;, plugin: plugin.name })
+
+  var actmetalist = []
+
+  delegate.add = function () {
+    var argsarr = new Array(arguments.length)
+    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+    var actmeta = argsarr[argsarr.length - 1] || {}
+
+    if (_.isFunction(actmeta)) {
+      actmeta = {}
+      argsarr.push(actmeta)
+    }
+
+    actmeta.plugin_name = plugin.name || &#x27;-&#x27;
+    actmeta.plugin_tag = plugin.tag || &#x27;-&#x27;
+    actmeta.plugin_fullname = plugin.fullname
+
+    // TODO: is this necessary?
+    actmeta.log = delegate.log
+
+    actmetalist.push(actmeta)
+
+    instance.add.apply(delegate, argsarr)
+
+    return delegate
+  }
+
+  delegate.__update_plugin__ = function (plugin) {
+    delegate.context.name = plugin.name || &#x27;-&#x27;
+    delegate.context.tag = plugin.tag || &#x27;-&#x27;
+    delegate.context.full = plugin.fullname || &#x27;-&#x27;
+
+    _.each(actmetalist, function (actmeta) {
+      actmeta.plugin_name = plugin.name || actmeta.plugin_name || &#x27;-&#x27;
+      actmeta.plugin_tag = plugin.tag || actmeta.plugin_tag || &#x27;-&#x27;
+      actmeta.plugin_fullname =
+        plugin.fullname || actmeta.plugin_fullname || &#x27;-&#x27;
+    })
+  }
+
+  delegate.context.module = plugin.parent || module
+  delegate.context.name = plugin.name || &#x27;-&#x27;
+  delegate.context.tag = plugin.tag || &#x27;-&#x27;
+  delegate.context.full = plugin.fullname
+  delegate.context.isplugin = true
+
+  return delegate
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var pins = config.pins ||
+      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+
+pins = _.map(pins, function (pin) {
+  return _.isString(pin) ? Jsonic(pin) : pin
+})
+
+var sd = Plugins.<span class="apidocCodeKeywordSpan">make_delegate</span>(self, { name: &#x27;client$&#x27;, tag: void 0 })
+
+var sendclient
+
+
+var transport_client = function transport_client (msg, done) {
+  if (msg.local$) {
+    this.prior(msg, done)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.plugins.register" id="apidoc.element.seneca.plugins.register">
+        function <span class="apidocSignatureSpan">seneca.plugins.</span>register
+        <span class="apidocSignatureSpan">(so, callpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (so, callpoint) {
+  var seq = 0
+
+  return function api_register (plugin) {
+    var seneca = this
+
+    var preload = plugin.init.preload
+    preload = _.isFunction(preload) ? preload : _.noop
+    var meta = preload.call(seneca, plugin) || {}
+
+    var fullname = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+    plugin.fullname = fullname
+
+    var delegate = make_delegate(seneca, plugin)
+
+    seq++
+
+    var plugin_define_pattern = {
+      role: &#x27;seneca&#x27;,
+      plugin: &#x27;define&#x27;,
+      name: plugin.name,
+      seq: seq
+    }
+
+    if (plugin.tag !== null) {
+      plugin_define_pattern.tag = plugin.tag
+    }
+
+    // seneca
+    delegate
+      .add(plugin_define_pattern, plugin_definition)
+      .act({
+        role: &#x27;seneca&#x27;,
+        plugin: &#x27;define&#x27;,
+        name: plugin.name,
+        tag: plugin.tag,
+        seq: seq,
+        default$: {},
+        // gate$: true,
+        fatal$: true,
+        local$: true
+      })
+
+    // needed for seneca.export to operate for plugins like seneca-web
+    var preloadName = meta.name || plugin.name
+    var preloadRef = preloadName + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+    seneca.private$.exports[preloadName] = meta.export || plugin
+
+    resolve_plugin_exports(seneca, preloadRef, meta)
+
+    function plugin_definition (msg, plugin_done) {
+      var plugin_seneca = this
+      var plugin_options = resolve_options(fullname, plugin, seneca)
+
+      // Update plugin options data in Seneca options.
+      var seneca_options = {plugin: {}}
+      seneca_options.plugin[fullname] = plugin_options
+      seneca.options(seneca_options)
+
+      plugin_seneca.log.debug({
+        kind: &#x27;plugin&#x27;,
+        case: &#x27;init&#x27;,
+        name: plugin.name,
+        tag: plugin.tag,
+        options: plugin_options,
+        callpoint: callpoint
+      })
+
+      try {
+        meta = define_plugin(plugin_seneca, plugin, plugin_options)
+      }
+      catch (e) {
+        // TODO: needs wrapping
+        return plugin_done(e)
+      }
+
+      // legacy api for service function
+      if (_.isFunction(meta)) {
+        meta = {service: meta}
+      }
+
+      plugin.name = meta.name || plugin.name
+      plugin.tag =
+        meta.tag ||
+        plugin.tag ||
+        (plugin.options &#x26;&#x26; plugin.options.tag$)
+
+      plugin.fullname = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+
+      plugin.service = meta.service || plugin.service
+
+      plugin_seneca.__update_plugin__(plugin)
+
+      var pluginref = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+      seneca.private$.plugins[pluginref] = plugin
+
+      seneca.private$.plugin_order.byname.push(plugin.name)
+      seneca.private$.plugin_order.byname = _.uniq(seneca.private$.plugin_order.byname)
+      seneca.private$.plugin_order.byref.push(pluginref)
+
+
+      var exports = resolve_plugin_exports(plugin_seneca, pluginref, meta)
+
+      plugin_seneca.log.debug({
+        kind: &#x27;plugin&#x27;,
+        case: &#x27;install&#x27;,
+        name: plugin.name,
+        tag: plugin.tag,
+        exports: exports
+      })
+
+      plugin_seneca.act(
+        {
+          init: plugin.name,
+          tag: plugin.tag,
+          default$: {},
+          fatal$: true,
+          local$: true
+        },
+        function (err, out) {
+          if (err) {
+            var plugin_err_code = &#x27;plugin_init&#x27;
+
+            plugin.plugin_error = err.message
+
+            if (err.code === &#x27;action-timeout&#x27;) {
+              plugin_err_code = &#x27;plugin_init_timeout&#x27;
+              plugin.timeout = so.timeout
+            }
+
+            return plugin_seneca.die(internals.error(err, plugin_err_code, plugin))
+          }
+
+          var fullname = plugin.name + (plugin.tag ? &#x27;$&#x27; + plugin.tag : &#x27;&#x27;)
+
+          if (so.debug.print &#x26;&#x26; so.debug.print.options) {
+            console.log(&#x27;\nSeneca Options (&#x27; + seneca.id + &#x27;): plugin: &#x27; +
+                        fullname + &#x27;\n&#x27; +
+                        &#x27;===\n&#x27;)
+            console.log(Util.inspect(plugin_options, { depth: null }))
+            console.log(&#x27;&#x27;)
+          }
+
+          plugin_seneca.log.debug({
+            kind: &#x27;plugin&#x27;,
+            case: &#x27;ready&#x27;,
+            name: plugin.name,
+            t ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+root.outward = api_outward // Add a modifier function for responses outward
+root.test = api_test // Set test mode.
+
+// Method aliases.
+root.hasact = root.has
+
+// Non-API methods.
+root.register = Plugins.<span class="apidocCodeKeywordSpan">register</span>(so, callpoint)
+root.depends = api_depends
+root.act_if = api_act_if
+root.wrap = api_wrap
+root.seneca = api_seneca
+root.fix = api_fix
+root.delegate = api_delegate
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.print" id="apidoc.module.seneca.print">module seneca.print</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.print.print" id="apidoc.element.seneca.print.print">
+        function <span class="apidocSignatureSpan">seneca.</span>print
+        <span class="apidocSignatureSpan">(seneca)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (seneca) {
+  var argv = Minimist(process.argv.slice(2))
+  if (!argv || !argv.seneca) {
+    return
+  }
+  var cmdspec = argv.seneca
+  if (cmdspec.print) {
+    if (cmdspec.print.tree) {
+      // Hack! Complex init means non-deterministic or multiple ready calls,
+      // so just delay tree print by some number of seconds to capture full tree.
+      var delay_seconds = cmdspec.print.tree.all || cmdspec.print.tree
+      if (_.isNumber(delay_seconds)) {
+        setTimeout(function () {
+          print_tree(seneca, cmdspec)
+        }, 1000 * delay_seconds)
+      }
+      else {
+        // Print after first ready
+        seneca.ready(function () {
+          print_tree(this, cmdspec)
+        })
+      }
+    }
+
+    if (cmdspec.print.options) {
+      seneca.options({ debug: { print: { options: true } } })
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.print.print_options" id="apidoc.element.seneca.print.print_options">
+        function <span class="apidocSignatureSpan">seneca.print.</span>print_options
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function print_options(options) {
+  if (options.debug.print.options) {
+    console.log(&#x27;\nSeneca Options (&#x27; + root.id + &#x27;): before plugins\n&#x27; + &#x27;===\n&#x27;)
+    console.log(Util.inspect(options, { depth: null }))
+    console.log(&#x27;&#x27;)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var seneca = make_seneca(initial_options)
+var options = seneca.options()
+
+// The &#x27;internal&#x27; key of options is reserved for objects and functions
+// that provide functionality, and are thus not really printable
+seneca.log.debug({kind: &#x27;notice&#x27;, options: _.omit(options, [&#x27;internal&#x27;])})
+
+Print.<span class="apidocCodeKeywordSpan">print_options</span>(options)
+
+// TODO: these are core API and should not be decorations
+seneca.decorate(&#x27;hasplugin&#x27;, Plugins.api_decorations.hasplugin)
+seneca.decorate(&#x27;findplugin&#x27;, Plugins.api_decorations.findplugin)
+seneca.decorate(&#x27;plugins&#x27;, Plugins.api_decorations.plugins)
+
+// Register default plugins, unless turned off by options.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.transport" id="apidoc.module.seneca.transport">module seneca.transport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.transport.client" id="apidoc.element.seneca.transport.client">
+        function <span class="apidocSignatureSpan">seneca.transport.</span>client
+        <span class="apidocSignatureSpan">(callpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">client = function (callpoint) {
+  return function api_client () {
+    var argsarr = new Array(arguments.length)
+    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+    var self = this
+
+    self.log.debug({
+      kind: &#x27;client&#x27;,
+      options: argsarr,
+      callpoint: callpoint()
+    })
+
+    var opts = self.options(null).transport || {}
+
+    var raw_config = internals.parse_config(argsarr)
+
+    // pg: pin group
+    raw_config.pg = Common.pincanon(raw_config.pin || raw_config.pins)
+
+    var config = internals.resolveConfig(raw_config, opts)
+
+    config.id = config.id || Common.pattern(raw_config)
+
+    var pins = config.pins ||
+          (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+
+    pins = _.map(pins, function (pin) {
+      return _.isString(pin) ? Jsonic(pin) : pin
+    })
+
+    var sd = Plugins.make_delegate(self, { name: &#x27;client$&#x27;, tag: void 0 })
+
+    var sendclient
+
+
+    var transport_client = function transport_client (msg, done) {
+      if (msg.local$) {
+        this.prior(msg, done)
+      }
+      else {
+        sendclient.send.call(this, msg, done)
+      }
+    }
+
+    transport_client.id = config.id
+
+    if (config.makehandle) {
+      transport_client.handle = config.makehandle(config)
+    }
+
+    _.each(pins, function (pin) {
+      pin = _.clone(pin)
+      pin.client$ = true
+      pin.internal$ = {catchall: true}
+
+      sd.add(pin, transport_client)
+    })
+
+
+    // Create client.
+    sd.act(
+      &#x27;role:transport,cmd:client&#x27;,
+      { config: config, gate$: true },
+      function (err, liveclient) {
+        if (err) {
+          return sd.die(internals.error(err, &#x27;transport_client&#x27;, config))
+        }
+
+        if (liveclient === null) {
+          return sd.die(internals.error(&#x27;transport_client_null&#x27;,
+                                        Common.clean(config)))
+        }
+
+        sendclient = liveclient
+      })
+
+    return self
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+Seneca()
+.use(local)
+.act(&#x27;cmd:run&#x27;, handler)
+
+Seneca()
+.<span class="apidocCodeKeywordSpan">client</span>({port: 8270, pin: &#x27;cmd:run&#x27;})
+.client({port: 8260, pin: &#x27;cmd:run&#x27;})
+.use(local)
+.act(&#x27;cmd:run&#x27;, handler)
+
+Seneca()
+.client({port: 8260, pin: &#x27;cmd:run&#x27;})
+.client({port: 8270, pin: &#x27;cmd:run&#x27;})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.transport.listen" id="apidoc.element.seneca.transport.listen">
+        function <span class="apidocSignatureSpan">seneca.transport.</span>listen
+        <span class="apidocSignatureSpan">(callpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (callpoint) {
+  return function api_listen () {
+    var argsarr = new Array(arguments.length)
+    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+    var self = this
+    var lastArg = _.last(argsarr)
+    if (typeof lastArg === &#x27;function&#x27;) {
+      argsarr.pop()
+    }
+
+    self.log.debug({
+      kind: &#x27;listen&#x27;,
+      options: argsarr,
+      callpoint: callpoint()
+    })
+
+    var opts = self.options().transport || {}
+    var config = internals.resolveConfig(internals.parse_config(argsarr), opts)
+
+    self.act(
+      &#x27;role:transport,cmd:listen&#x27;,
+      { config: config, gate$: true },
+      function (err, result) {
+        if (err) {
+          return self.die(internals.error(err, &#x27;transport_listen&#x27;, config))
+        }
+
+        if (typeof lastArg === &#x27;function&#x27;) {
+          lastArg(null, result)
+          lastArg = _.noop
+        }
+      })
+
+    return self
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Services can listen for messages using a variety of
+// transports. In process and http are included by default.
+
+
+Seneca()
+  .use(approver)
+  .<span class="apidocCodeKeywordSpan">listen</span>({type: &#x27;http&#x27;, port: &#x27;8260&#x27;, pin: &#x27;cmd:*&#x27;})
+
+Seneca()
+  .use(rejector)
+  .listen(8270)
+
+
+// Load order is important, messages can be routed
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.seneca.util" id="apidoc.module.seneca.util">module seneca.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.argprops" id="apidoc.element.seneca.util.argprops">
+        function <span class="apidocSignatureSpan">seneca.util.</span>argprops
+        <span class="apidocSignatureSpan">(defaults, args, fixed, omits)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function argprops(defaults, args, fixed, omits) {
+  omits = _.isArray(omits) ? omits
+    : _.isObject(omits) ? _.keys(omits)
+    : _.isString(omits) ? omits.split(/\s*,\s*/)
+    : &#x27;&#x27; + omits
+
+  // a little pre omit to avoid entities named in omits
+  var usedargs = _.omit(args, omits)
+
+  // don&#x27;t support $ args
+  usedargs = clean(usedargs)
+
+  return _.omit(deepextend(defaults, usedargs, fixed), omits)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.clean" id="apidoc.element.seneca.util.clean">
+        function <span class="apidocSignatureSpan">seneca.util.</span>clean
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clean(obj) {
+  if (obj === null) return obj
+
+  return _.pickBy(obj, function (val, prop) {
+    return !_.includes(prop, &#x27;$&#x27;)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // See [`seneca.add`](#seneca.add)
+  function api_add () {
+var self = this
+var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+
+var raw_pattern = args.pattern
+
+var pattern = self.util.<span class="apidocCodeKeywordSpan">clean</span>(raw_pattern)
+
+if (!_.keys(pattern)) {
+  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+}
+
+
+var action = args.action || function default_action (msg, done) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.copydata" id="apidoc.element.seneca.util.copydata">
+        function <span class="apidocSignatureSpan">seneca.util.</span>copydata
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copydata = function (obj) {
+  var copy
+
+  // Handle the 3 simple types, and null or undefined
+  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+
+  // Handle Date
+  if (_.isDate(obj)) {
+    copy = new Date()
+    copy.setTime(obj.getTime())
+    return copy
+  }
+
+  // Handle Array
+  if (_.isArray(obj)) {
+    copy = []
+    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+      copy[i] = copydata(obj[i])
+    }
+    return copy
+  }
+
+  // Handle Object
+  if (_.isObject(obj)) {
+    copy = {}
+    for (var attr in obj) {
+      if (obj.hasOwnProperty(attr)) copy[attr] = copydata(obj[attr])
+    }
+    return copy
+  }
+
+  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function action_options_get (args, done) {
+  var options = private$.optioner.get()
+
+  var base = args.base || null
+  var root = base ? (options[base] || {}) : options
+  var val = args.key ? root[args.key] : root
+
+  done(null, Common.<span class="apidocCodeKeywordSpan">copydata</span>(val))
+}
+
+_.each(so.internal.close_signals, function (active, signal) {
+  if (active) {
+    process.once(signal, handleClose)
+  }
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.deepextend" id="apidoc.element.seneca.util.deepextend">
+        function <span class="apidocSignatureSpan">seneca.util.</span>deepextend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deepextend() {
+  var argsarr = new Array(arguments.length)
+  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+
+  // Lodash uses the reverse order to apply defaults than the deepextend API.
+  argsarr = argsarr.reverse()
+
+  // Add an empty object to the front of the args.  Defaults will be written
+  // to this empty object.
+  argsarr.unshift({})
+
+  return _.defaultsDeep.apply(_, argsarr)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  callpoint: callpoint
+})
+
+root.util = seneca_util
+
+
+// Configure logging
+private$.exports = { options: Common.<span class="apidocCodeKeywordSpan">deepextend</span>({}, so) }
+private$.decorations = {}
+
+private$.logger = load_logger(root, so.internal.logger)
+root.log = make_log(root, default_log_modifier)
+
+
+// Error events are fatal, unless you&#x27;re undead.  These are not the
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.nil" id="apidoc.element.seneca.util.nil">
+        function <span class="apidocSignatureSpan">seneca.util.</span>nil
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function nil() {
+  _.each(arguments, function (arg) {
+    if (_.isFunction(arg)) {
+      return arg()
+    }
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.parsepattern" id="apidoc.element.seneca.util.parsepattern">
+        function <span class="apidocSignatureSpan">seneca.util.</span>parsepattern
+        <span class="apidocSignatureSpan">(instance, args, normaspec, fixed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
+  args =
+    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+
+  try {
+    return _.extend(
+      args,
+      { pattern: _.extend(
+          {},
+
+          // Precedence of arguments in add,act is left-to-right
+          args.moreobjargs ? args.moreobjargs : {},
+          args.objargs ? args.objargs : {},
+          args.strargs ? Jsonic(args.strargs) : {},
+
+          fixed || {})
+      })
+  }
+  catch (e) {
+    var col = (e.line === 1) ? e.column - 1 : e.column
+    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+      argstr: args,
+      syntax: e.message,
+      line: e.line,
+      col: col
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.pattern" id="apidoc.element.seneca.util.pattern">
+        function <span class="apidocSignatureSpan">seneca.util.</span>pattern
+        <span class="apidocSignatureSpan">(patobj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pattern(patobj) {
+  if (_.isString(patobj)) {
+    return patobj
+  }
+
+  patobj = patobj || {}
+  var sb = []
+  _.each(patobj, function (v, k) {
+    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
+      sb.push(k + &#x27;:&#x27; + v)
+    }
+  })
+
+  sb.sort()
+
+  return sb.join(&#x27;,&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      handle_sub(args, result)
+    }
+  }
+
+  var subs = private$.subrouter.find(pattern)
+  if (!subs) {
+    private$.subrouter.add(pattern, subs = [])
+    subs.pattern = Common.<span class="apidocCodeKeywordSpan">pattern</span>(pattern)
+  }
+  subs.push(subargs.action)
+
+  return self
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.pincanon" id="apidoc.element.seneca.util.pincanon">
+        function <span class="apidocSignatureSpan">seneca.util.</span>pincanon
+        <span class="apidocSignatureSpan">(inpin)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pincanon(inpin) {
+  if (_.isString(inpin)) {
+    return pattern(Jsonic(inpin))
+  }
+  else if (_.isArray(inpin)) {
+    var pin = _.map(inpin, pincanon)
+    pin.sort()
+    return pin.join(&#x27;;&#x27;)
+  }
+  else {
+    return pattern(inpin)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+
+var opts = self.options(null).transport || {}
+
+var raw_config = internals.parse_config(argsarr)
+
+// pg: pin group
+raw_config.pg = Common.<span class="apidocCodeKeywordSpan">pincanon</span>(raw_config.pin || raw_config.pins)
+
+var config = internals.resolveConfig(raw_config, opts)
+
+config.id = config.id || Common.pattern(raw_config)
+
+var pins = config.pins ||
+      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.print" id="apidoc.element.seneca.util.print">
+        function <span class="apidocSignatureSpan">seneca.util.</span>print
+        <span class="apidocSignatureSpan">(err, out)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
+  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  else { console.log(Util.inspect(out, {depth: null})) }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.recurse" id="apidoc.element.seneca.util.recurse">
+        function <span class="apidocSignatureSpan">seneca.util.</span>recurse
+        <span class="apidocSignatureSpan">(list, work, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function recurse(list, work, done) {
+  var ctxt = this
+
+  if (_.isNumber(list)) {
+    list = _.range(0, list)
+  }
+  else {
+    list = _.clone(list)
+  }
+
+  function next (err, out) {
+    if (err) return done(err, out)
+
+    var item = list.shift()
+
+    if (void 0 !== item) {
+      work.call(ctxt, item, next)
+    }
+    else {
+      done.call(ctxt, err, out)
+    }
+  }
+  next.call(ctxt)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.seneca.util.router" id="apidoc.element.seneca.util.router">
+        function <span class="apidocSignatureSpan">seneca.util.</span>router
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function router() { return Patrun() }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
