@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/seneca.png?downloads=true)](https://www.npmjs.com/package/seneca)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-seneca/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-seneca_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-seneca/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-seneca/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-seneca_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-seneca/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-seneca/build/screenCapture.npmPackageListing.svg)
 
