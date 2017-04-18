@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://senecajs.org"
-
-    >seneca (v3.3.0)</a>
+    <a href="http://senecajs.org">seneca (v3.3.0)</a>
 </h1>
 <h4>A Microservices Framework for Node.js</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.seneca">module seneca</a><ol>
 
@@ -918,20 +911,20 @@
   var seneca = make_seneca(initial_options)
   var options = seneca.options()
 
-  // The &#x27;internal&#x27; key of options is reserved for objects and functions
+  // The 'internal' key of options is reserved for objects and functions
   // that provide functionality, and are thus not really printable
-  seneca.log.debug({kind: &#x27;notice&#x27;, options: _.omit(options, [&#x27;internal&#x27;])})
+  seneca.log.debug({kind: 'notice', options: _.omit(options, ['internal'])})
 
   Print.print_options(options)
 
   // TODO: these are core API and should not be decorations
-  seneca.decorate(&#x27;hasplugin&#x27;, Plugins.api_decorations.hasplugin)
-  seneca.decorate(&#x27;findplugin&#x27;, Plugins.api_decorations.findplugin)
-  seneca.decorate(&#x27;plugins&#x27;, Plugins.api_decorations.plugins)
+  seneca.decorate('hasplugin', Plugins.api_decorations.hasplugin)
+  seneca.decorate('findplugin', Plugins.api_decorations.findplugin)
+  seneca.decorate('plugins', Plugins.api_decorations.plugins)
 
   // Register default plugins, unless turned off by options.
   if (options.default_plugins.transport) {
-    seneca.use(require(&#x27;seneca-transport&#x27;))
+    seneca.use(require('seneca-transport'))
   }
 
   // Register plugins specified in options.
@@ -940,7 +933,7 @@
   })
 
   seneca.ready(function () {
-    this.log.info({kind: &#x27;notice&#x27;, notice: &#x27;hello seneca &#x27; + seneca.id})
+    this.log.info({kind: 'notice', notice: 'hello seneca ' + seneca.id})
   })
 
   return seneca
@@ -1009,11 +1002,11 @@
 
 
   function prepare (basemodule, defaults, initial) {
-    var DEFAULT_OPTIONS_FILE = &#x27;./seneca.options.js&#x27;
-    var FATAL_OPTIONS_FILE = &#x27;./options.seneca.js&#x27;
+    var DEFAULT_OPTIONS_FILE = './seneca.options.js'
+    var FATAL_OPTIONS_FILE = './options.seneca.js'
 
     // Load from custom file, either by providing a string,
-    // or having a property &#x27;from&#x27; that is a string.
+    // or having a property 'from' that is a string.
     // The string is interpreted as a file path.
 
     var from = initial.from
@@ -1031,7 +1024,7 @@
 
 
     if (Fs.existsSync(FATAL_OPTIONS_FILE)) {
-      throw error(&#x27;inverted_file_name&#x27;, {
+      throw error('inverted_file_name', {
         from: FATAL_OPTIONS_FILE, module: basemodule
       })
     }
@@ -1040,14 +1033,14 @@
       sourcemap.default_file = basemodule.require(DEFAULT_OPTIONS_FILE)
     }
     catch (e) {
-      if (e.code !== &#x27;MODULE_NOT_FOUND&#x27;) {
+      if (e.code !== 'MODULE_NOT_FOUND') {
         var wrappedError = {
           errmsg: e.message,
           from: DEFAULT_OPTIONS_FILE,
           module: basemodule
         }
 
-        throw error(e, &#x27;require_default_options&#x27;, wrappedError)
+        throw error(e, 'require_default_options', wrappedError)
       }
     }
 
@@ -1061,7 +1054,7 @@
         sourcemap.argv = argv.seneca.options
       }
       else if (_.isString(argv.seneca.options)) {
-        if (argv.seneca.options === &#x27;print&#x27;) {
+        if (argv.seneca.options === 'print') {
           sourcemap.argv = { debug: {print: {options: true}} }
         }
         else {
@@ -1075,7 +1068,7 @@
       }
 
       if (null != argv.seneca.tag) {
-        sourcemap.argv.tag = &#x27;&#x27; + argv.seneca.tag
+        sourcemap.argv.tag = '' + argv.seneca.tag
       }
 
       if (argv.seneca.log) {
@@ -1124,7 +1117,7 @@
     if (_.isObject(logSpec)) {
       parsedSpec.log = {}
       var logType = Object.keys(logSpec.level || logSpec)
-      if (logType.length &#x3e; 0) {
+      if (logType.length &gt; 0) {
         parsedSpec.log = { level: logType[0] }
       }
     }
@@ -1132,9 +1125,9 @@
 
 
   function set_options (input) {
-    if (null == input) throw error(&#x27;no_options&#x27;)
+    if (null == input) throw error('no_options')
 
-    // DEPRECATED: Remove when Seneca &#x3e;= 4.x
+    // DEPRECATED: Remove when Seneca &gt;= 4.x
     if (_.isString(input)) {
       options = prepare(basemodule, defaults, input)
     }
@@ -1214,27 +1207,27 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function top_test() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
-  var instance = module.exports({test: true, log: &#x27;test&#x27;})
+  var instance = module.exports({test: true, log: 'test'})
   instance.test.apply(instance, argsarr)
 
   return instance
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
 var instance = module.exports()
 
 return instance.use.apply(instance, argsarr)
 }
 
-// Makes require(&#x27;seneca&#x27;).<span class="apidocCodeKeywordSpan">test</span>() work.
+// Makes require('seneca').<span class="apidocCodeKeywordSpan">test</span>() work.
 module.exports.test = function top_test () {
 var argsarr = new Array(arguments.length)
-for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
-var instance = module.exports({test: true, log: &#x27;test&#x27;})
+var instance = module.exports({test: true, log: 'test'})
 instance.test.apply(instance, argsarr)
 ...</pre></li>
     </ul>
@@ -1255,7 +1248,7 @@ instance.test.apply(instance, argsarr)
     {},
     err.details,
     {
-      message: (err.eraro &#x26;&#x26; err.orig) ? err.orig.message : err.message,
+      message: (err.eraro &amp;&amp; err.orig) ? err.orig.message : err.message,
       pattern: actmeta.pattern,
       fn: actmeta.func,
       cb: cb,
@@ -1266,7 +1259,7 @@ instance.test.apply(instance, argsarr)
 }
 
 // Special legacy case for seneca-perm
-else if (err.orig &#x26;&#x26;
+else if (err.orig &amp;&amp;
 ...</pre></li>
     </ul>
 
@@ -1281,7 +1274,7 @@ else if (err.orig &#x26;&#x26;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function top_use() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   var instance = module.exports()
 
@@ -1296,7 +1289,7 @@ else if (err.orig &#x26;&#x26;
 
 Seneca()
 .<span class="apidocCodeKeywordSpan">use</span>(approver)
-.listen({type: &#x27;http&#x27;, port: &#x27;8260&#x27;, pin: &#x27;cmd:*&#x27;})
+.listen({type: 'http', port: '8260', pin: 'cmd:*'})
 
 Seneca()
 .use(rejector)
@@ -1317,12 +1310,12 @@ Seneca()
   omits = _.isArray(omits) ? omits
     : _.isObject(omits) ? _.keys(omits)
     : _.isString(omits) ? omits.split(/\s*,\s*/)
-    : &#x27;&#x27; + omits
+    : '' + omits
 
   // a little pre omit to avoid entities named in omits
   var usedargs = _.omit(args, omits)
 
-  // don&#x27;t support $ args
+  // don't support $ args
   usedargs = clean(usedargs)
 
   return _.omit(deepextend(defaults, usedargs, fixed), omits)
@@ -1343,21 +1336,21 @@ Seneca()
   if (obj === null) return obj
 
   return _.pickBy(obj, function (val, prop) {
-    return !_.includes(prop, &#x27;$&#x27;)
+    return !_.includes(prop, '$')
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // See [`seneca.add`](#seneca.add)
   function api_add () {
 var self = this
-var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+var args = Common.parsePattern(self, arguments, 'action:f? actmeta:o?')
 
 var raw_pattern = args.pattern
 
 var pattern = self.<span class="apidocCodeKeywordSpan">util.clean</span>(raw_pattern)
 
 if (!_.keys(pattern)) {
-  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+  throw error('add_empty_pattern', {args: Common.clean(args)})
 }
 
 
@@ -1378,7 +1371,7 @@ var action = args.action || function default_action (msg, done) {
   var copy
 
   // Handle the 3 simple types, and null or undefined
-  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+  if (obj === null || typeof obj !== 'object') return obj
 
   // Handle Date
   if (_.isDate(obj)) {
@@ -1390,7 +1383,7 @@ var action = args.action || function default_action (msg, done) {
   // Handle Array
   if (_.isArray(obj)) {
     copy = []
-    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+    for (var i = 0, len = obj.length; i &lt; len; ++i) {
       copy[i] = copydata(obj[i])
     }
     return copy
@@ -1405,7 +1398,7 @@ var action = args.action || function default_action (msg, done) {
     return copy
   }
 
-  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+  throw new Error("Unable to copy obj! Its type isn't supported.")
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1421,7 +1414,7 @@ var action = args.action || function default_action (msg, done) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function deepextend() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   // Lodash uses the reverse order to apply defaults than the deepextend API.
   argsarr = argsarr.reverse()
@@ -1465,7 +1458,7 @@ var action = args.action || function default_action (msg, done) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
   args =
-    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+    Norma('{strargs:s? objargs:o? moreobjargs:o? ' + (normaspec || '') + '}', args)
 
   try {
     return _.extend(
@@ -1483,7 +1476,7 @@ var action = args.action || function default_action (msg, done) {
   }
   catch (e) {
     var col = (e.line === 1) ? e.column - 1 : e.column
-    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+    throw internals.error('add_string_pattern_syntax', {
       argstr: args,
       syntax: e.message,
       line: e.line,
@@ -1511,14 +1504,14 @@ var action = args.action || function default_action (msg, done) {
   patobj = patobj || {}
   var sb = []
   _.each(patobj, function (v, k) {
-    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
-      sb.push(k + &#x27;:&#x27; + v)
+    if (!~k.indexOf('$') &amp;&amp; !_.isFunction(v)) {
+      sb.push(k + ':' + v)
     }
   })
 
   sb.sort()
 
-  return sb.join(&#x27;,&#x27;)
+  return sb.join(',')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1539,7 +1532,7 @@ var action = args.action || function default_action (msg, done) {
   else if (_.isArray(inpin)) {
     var pin = _.map(inpin, pincanon)
     pin.sort()
-    return pin.join(&#x27;;&#x27;)
+    return pin.join(';')
   }
   else {
     return pattern(inpin)
@@ -1558,7 +1551,7 @@ var action = args.action || function default_action (msg, done) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
-  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  if (err) { console.log('ERROR: ' + err.message) }
   else { console.log(Util.inspect(out, {depth: null})) }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1684,7 +1677,7 @@ var action = args.action || function default_action (msg, done) {
 
   var actmeta = seneca.private$.actrouter.find(pat)
 
-  if (!actmeta &#x26;&#x26; flags &#x26;&#x26; flags.catchall) {
+  if (!actmeta &amp;&amp; flags &amp;&amp; flags.catchall) {
     actmeta = seneca.private$.actrouter.find({})
   }
 
@@ -1736,11 +1729,11 @@ _.each(subfuncs, function subfunc (subfunc) {
     <li>description and source-code<pre class="apidocCodePre">list = function (pattern) {
   var pat = _.isString(pattern) ? Jsonic(pattern) : pattern
   var found = this.private$.actrouter.list(pat)
-  found = _.map(found, &#x27;match&#x27;)
+  found = _.map(found, 'match')
   return found
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
 var pins = []
 var patterns = _.flatten(argsarr)
@@ -1780,12 +1773,12 @@ return pins
   omits = _.isArray(omits) ? omits
     : _.isObject(omits) ? _.keys(omits)
     : _.isString(omits) ? omits.split(/\s*,\s*/)
-    : &#x27;&#x27; + omits
+    : '' + omits
 
   // a little pre omit to avoid entities named in omits
   var usedargs = _.omit(args, omits)
 
-  // don&#x27;t support $ args
+  // don't support $ args
   usedargs = clean(usedargs)
 
   return _.omit(deepextend(defaults, usedargs, fixed), omits)
@@ -1842,21 +1835,21 @@ function parse_command_line (spec, parsedSpec) {
   if (obj === null) return obj
 
   return _.pickBy(obj, function (val, prop) {
-    return !_.includes(prop, &#x27;$&#x27;)
+    return !_.includes(prop, '$')
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // See [`seneca.add`](#seneca.add)
   function api_add () {
 var self = this
-var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+var args = Common.parsePattern(self, arguments, 'action:f? actmeta:o?')
 
 var raw_pattern = args.pattern
 
 var pattern = self.util.<span class="apidocCodeKeywordSpan">clean</span>(raw_pattern)
 
 if (!_.keys(pattern)) {
-  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+  throw error('add_empty_pattern', {args: Common.clean(args)})
 }
 
 
@@ -1908,7 +1901,7 @@ var handleClose = function () {
   var copy
 
   // Handle the 3 simple types, and null or undefined
-  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+  if (obj === null || typeof obj !== 'object') return obj
 
   // Handle Date
   if (_.isDate(obj)) {
@@ -1920,7 +1913,7 @@ var handleClose = function () {
   // Handle Array
   if (_.isArray(obj)) {
     copy = []
-    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+    for (var i = 0, len = obj.length; i &lt; len; ++i) {
       copy[i] = copydata(obj[i])
     }
     return copy
@@ -1935,7 +1928,7 @@ var handleClose = function () {
     return copy
   }
 
-  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+  throw new Error("Unable to copy obj! Its type isn't supported.")
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 function action_options_get (args, done) {
@@ -1967,7 +1960,7 @@ _.each(so.internal.close_signals, function (active, signal) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function deepextend() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   // Lodash uses the reverse order to apply defaults than the deepextend API.
   argsarr = argsarr.reverse()
@@ -1993,7 +1986,7 @@ private$.logger = load_logger(root, so.internal.logger)
 root.log = make_log(root, default_log_modifier)
 
 
-// Error events are fatal, unless you&#x27;re undead.  These are not the
+// Error events are fatal, unless you're undead.  These are not the
 ...</pre></li>
     </ul>
 
@@ -2115,12 +2108,12 @@ if (cb) {
   ctxt = _.extend(ctxt, instance.die ? instance.die.context : {})
 
   var die = function (err) {
-    var die_trace = &#x27;\n&#x27; + (new Error(&#x27;die trace&#x27;).stack)
+    var die_trace = '\n' + (new Error('die trace').stack)
         .match(/^.*?\n.*\n(.*)/)[1]
 
     try {
       if (!err) {
-        err = new Error(&#x27;unknown&#x27;)
+        err = new Error('unknown')
       }
       else if (!Util.isError(err)) {
         err = new Error(_.isString(err) ? err : Util.inspect(err))
@@ -2131,7 +2124,7 @@ if (cb) {
       var so = instance.options()
 
       // undead is only for testing, do not use in production
-      var undead = (so.debug &#x26;&#x26; so.debug.undead) || (err &#x26;&#x26; err.undead)
+      var undead = (so.debug &amp;&amp; so.debug.undead) || (err &amp;&amp; err.undead)
 
       var logdesc = {
         kind: ctxt.txt,
@@ -2146,35 +2139,35 @@ if (cb) {
 
       instance.log.fatal.apply(instance, logdesc)
 
-      var stack = err.stack || &#x27;&#x27;
-      stack = stack.replace(/^.*?\n/, &#x27;\n&#x27;)
+      var stack = err.stack || ''
+      stack = stack.replace(/^.*?\n/, '\n')
 
-      var procdesc = &#x27;\n  pid=&#x27; + process.pid +
-        &#x27;, arch=&#x27; + process.arch +
-        &#x27;, platform=&#x27; + process.platform +
-        &#x27;,\n  path=&#x27; + process.execPath +
-        &#x27;,\n  argv=&#x27; + Util.inspect(process.argv).replace(/\n/g, &#x27;&#x27;) +
-        &#x27;,\n  env=&#x27; + Util.inspect(process.env).replace(/\n/g, &#x27;&#x27;)
+      var procdesc = '\n  pid=' + process.pid +
+        ', arch=' + process.arch +
+        ', platform=' + process.platform +
+        ',\n  path=' + process.execPath +
+        ',\n  argv=' + Util.inspect(process.argv).replace(/\n/g, '') +
+        ',\n  env=' + Util.inspect(process.env).replace(/\n/g, '')
 
       var fatalmodemsg = instance.fixedargs.fatal$
-        ? &#x27;\n  ALL ERRORS FATAL: action called with argument fatal$:true &#x27; +
-        &#x27;(probably a plugin init error, or using a plugin seneca instance)&#x27; : &#x27;&#x27;
+        ? '\n  ALL ERRORS FATAL: action called with argument fatal$:true ' +
+        '(probably a plugin init error, or using a plugin seneca instance)' : ''
 
       var stderrmsg =
-      &#x27;\n\n&#x27; +
-        &#x27;Seneca Fatal Error\n&#x27; +
-        &#x27;==================\n\n&#x27; +
-        &#x27;Message: &#x27; + err.message + &#x27;\n\n&#x27; +
-        &#x27;Code: &#x27; + err.code + &#x27;\n\n&#x27; +
-        &#x27;Details: &#x27; + Util.inspect(err.details, {depth: null}) + &#x27;\n\n&#x27; +
-        &#x27;Stack: &#x27; + stack + &#x27;\n\n&#x27; +
-        &#x27;Instance: &#x27; + instance.toString() + fatalmodemsg + die_trace + &#x27;\n\n&#x27; +
-        &#x27;When: &#x27; + new Date().toISOString() + &#x27;\n\n&#x27; +
-        &#x27;Log: &#x27; + Jsonic.stringify(logdesc) + &#x27;\n\n&#x27; +
-        &#x27;Node:\n  &#x27; + Util.inspect(process.versions).replace(/\s+/g, &#x27; &#x27;) +
-        &#x27;,\n  &#x27; + Util.inspect(process.features).replace(/\s+/g, &#x27; &#x27;) +
-        &#x27;,\n  &#x27; + Util.inspect(process.moduleLoadList).replace(/\s+/g, &#x27; &#x27;) + &#x27;\n\n&#x27; +
-        &#x27;Process: &#x27; + procdesc + &#x27;\n\n&#x27;
+      '\n\n' +
+        'Seneca Fatal Error\n' +
+        '==================\n\n' +
+        'Message: ' + err.message + '\n\n' +
+        'Code: ' + err.code + '\n\n' +
+        'Details: ' + Util.inspect(err.details, {depth: null}) + '\n\n' +
+        'Stack: ' + stack + '\n\n' +
+        'Instance: ' + instance.toString() + fatalmodemsg + die_trace + '\n\n' +
+        'When: ' + new Date().toISOString() + '\n\n' +
+        'Log: ' + Jsonic.stringify(logdesc) + '\n\n' +
+        'Node:\n  ' + Util.inspect(process.versions).replace(/\s+/g, ' ') +
+        ',\n  ' + Util.inspect(process.features).replace(/\s+/g, ' ') +
+        ',\n  ' + Util.inspect(process.moduleLoadList).replace(/\s+/g, ' ') + '\n\n' +
+        'Process: ' + procdesc + '\n\n'
 
       if (so.errhandler) {
         so.errhandler.call(instance, err)
@@ -2185,7 +2178,7 @@ if (cb) {
       }
 
       if (!undead) {
-        instance.act(&#x27;role:seneca,info:fatal,closing$:true&#x27;, {err: err})
+        instance.act('role:seneca,info:fatal,closing$:true', {err: err})
 
         instance.close(
           // terminate process, err (if defined) is from seneca.close
@@ -2197,8 +2190,8 @@ if (cb) {
                 }
 
                 exports.console_error(stderrmsg)
-                exports.console_error(&#x27;\n\nSENECA TERMINATED at &#x27; + (new Date().toISOString()) +
-                  &#x27;. See above for error report.\n\n&#x27;)
+                exports.console_error('\n\nSENECA TERMINATED at ' + (new Date().toISOString()) +
+                  '. See above for error report.\n\n')
                 process.exit(1)
               })
             }
@@ -2210,8 +2203,8 @@ if (cb) {
       if (!undead) {
         var killtimer = setTimeout(function () {
           exports.console_error(stderrmsg)
-          exports.console_error(&#x27;\n\nSENECA TERMINATED (on timeout) at &#x27; +
-            (new Date().toISOString()) + &#x27;.\n\n&#x27;)
+          exports.console_error('\n\nSENECA TERMINATED (on timeout) at ' +
+            (new Date().toISOString()) + '.\n\n')
           process.exit(2)
         }, so.deathdelay)
         killtimer.unref()
@@ -2219,12 +2212,12 @@ if (cb) {
     }
     catch (panic) {
       var msg =
-      &#x27;\n\n&#x27; +
-        &#x27;Seneca Panic\n&#x27; +
-        &#x27;============\n\n&#x27; +
+      '\n\n' +
+        'Seneca Panic\n' +
+        '============\n\n' +
         panic.stack +
-        &#x27;\n\nOriginal Error:\n&#x27; +
-        (arguments[0] &#x26;&#x26; arguments[0].stack ? arguments[0].stack : arguments[0])
+        '\n\nOriginal Error:\n' +
+        (arguments[0] &amp;&amp; arguments[0].stack ? arguments[0].stack : arguments[0])
       exports.console_error(msg)
     }
   }
@@ -2236,14 +2229,14 @@ if (cb) {
     <li>example usage<pre class="apidocCodePre">...
   so.idlen = 2
   root.idgen = Nid({length: so.idlen})
-  root.id = root.idgen() + &#x27;/&#x27; + so.tag
+  root.id = root.idgen() + '/' + so.tag
 }
 
-root.fullname = &#x27;Seneca/&#x27; + root.id
+root.fullname = 'Seneca/' + root.id
 
 root.die = Common.<span class="apidocCodeKeywordSpan">makedie</span>(root, {
-  type: &#x27;sys&#x27;,
-  plugin: &#x27;seneca&#x27;,
+  type: 'sys',
+  plugin: 'seneca',
   tag: root.version,
   id: root.id,
   callpoint: callpoint
@@ -2281,7 +2274,7 @@ root.die = Common.<span class="apidocCodeKeywordSpan">makedie</span>(root, {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
   args =
-    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+    Norma('{strargs:s? objargs:o? moreobjargs:o? ' + (normaspec || '') + '}', args)
 
   try {
     return _.extend(
@@ -2299,7 +2292,7 @@ root.die = Common.<span class="apidocCodeKeywordSpan">makedie</span>(root, {
   }
   catch (e) {
     var col = (e.line === 1) ? e.column - 1 : e.column
-    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+    throw internals.error('add_string_pattern_syntax', {
       argstr: args,
       syntax: e.message,
       line: e.line,
@@ -2315,13 +2308,13 @@ return exportval
   function api_sub () {
 var self = this
 
-var subargs = Common.<span class="apidocCodeKeywordSpan">parsePattern</span>(self, arguments, &#x27;action:f actmeta:o?&#x27;)
+var subargs = Common.<span class="apidocCodeKeywordSpan">parsePattern</span>(self, arguments, 'action:f actmeta:o?')
 var pattern = subargs.pattern
-if (pattern.in$ == null &#x26;&#x26;
-  pattern.out$ == null &#x26;&#x26;
-  pattern.error$ == null &#x26;&#x26;
-  pattern.cache$ == null &#x26;&#x26;
-  pattern.default$ == null &#x26;&#x26;
+if (pattern.in$ == null &amp;&amp;
+  pattern.out$ == null &amp;&amp;
+  pattern.error$ == null &amp;&amp;
+  pattern.cache$ == null &amp;&amp;
+  pattern.default$ == null &amp;&amp;
   pattern.client$ == null) {
 ...</pre></li>
     </ul>
@@ -2343,14 +2336,14 @@ if (pattern.in$ == null &#x26;&#x26;
   patobj = patobj || {}
   var sb = []
   _.each(patobj, function (v, k) {
-    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
-      sb.push(k + &#x27;:&#x27; + v)
+    if (!~k.indexOf('$') &amp;&amp; !_.isFunction(v)) {
+      sb.push(k + ':' + v)
     }
   })
 
   sb.sort()
 
-  return sb.join(&#x27;,&#x27;)
+  return sb.join(',')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       handle_sub(args, result)
@@ -2385,7 +2378,7 @@ if (pattern.in$ == null &#x26;&#x26;
   else if (_.isArray(inpin)) {
     var pin = _.map(inpin, pincanon)
     pin.sort()
-    return pin.join(&#x27;;&#x27;)
+    return pin.join(';')
   }
   else {
     return pattern(inpin)
@@ -2406,7 +2399,7 @@ var config = internals.resolveConfig(raw_config, opts)
 config.id = config.id || Common.pattern(raw_config)
 
 var pins = config.pins ||
-      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+      (_.isArray(config.pin) ? config.pin : [config.pin || ''])
 ...</pre></li>
     </ul>
 
@@ -2420,7 +2413,7 @@ var pins = config.pins ||
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
-  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  if (err) { console.log('ERROR: ' + err.message) }
   else { console.log(Util.inspect(out, {depth: null})) }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2494,7 +2487,7 @@ var pins = config.pins ||
     <li>description and source-code<pre class="apidocCodePre">function make_legacy_fail(so) {
   return function () {
     var argsarr = new Array(arguments.length)
-    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+    for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
     var cb = _.isFunction(argsarr[argsarr.length - 1])
       ? argsarr[argsarr.length - 1] : null
@@ -2539,7 +2532,7 @@ root.fail = Legacy.<span class="apidocCodeKeywordSpan">fail</span>(so)
 // Identifier generator.
 root.idgen = Nid({length: so.idlen})
 so.tag = so.tag || option_defaults.tag
-so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
+so.tag = so.tag === 'undefined' ? option_defaults.tag : so.tag
 
 // Create a unique identifer for this instance.
 ...</pre></li>
@@ -2583,26 +2576,26 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
   var origspec = logspec
 
   if (_.isString(logspec)) {
-    if (&#x27;quiet&#x27; === logspec) {
-      logspec = {level: &#x27;none&#x27;}
+    if ('quiet' === logspec) {
+      logspec = {level: 'none'}
     }
-    else if (&#x27;silent&#x27; === logspec) {
-      logspec = {level: &#x27;none&#x27;}
+    else if ('silent' === logspec) {
+      logspec = {level: 'none'}
     }
-    else if (&#x27;any&#x27; === logspec) {
-      logspec = {level: &#x27;debug+&#x27;}
+    else if ('any' === logspec) {
+      logspec = {level: 'debug+'}
     }
-    else if (&#x27;all&#x27; === logspec) {
-      logspec = {level: &#x27;debug+&#x27;}
+    else if ('all' === logspec) {
+      logspec = {level: 'debug+'}
     }
-    else if (&#x27;print&#x27; === logspec) {
-      logspec = {level: &#x27;debug+&#x27;}
+    else if ('print' === logspec) {
+      logspec = {level: 'debug+'}
     }
-    else if (&#x27;standard&#x27; === logspec) {
-      logspec = {level: &#x27;info+&#x27;}
+    else if ('standard' === logspec) {
+      logspec = {level: 'info+'}
     }
-    else if (&#x27;test&#x27; === logspec) {
-      logspec = {level: &#x27;warn+&#x27;}
+    else if ('test' === logspec) {
+      logspec = {level: 'warn+'}
     }
   }
 
@@ -2622,56 +2615,56 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
           var logstr
           var time = data.when - seneca.start_time
 
-          if (&#x27;test&#x27; === origspec || &#x27;print&#x27; === origspec) {
+          if ('test' === origspec || 'print' === origspec) {
             var logb = [
-              time + &#x27;/&#x27; + seneca.id.substring(0, 2),
-              data.kind + (data.case ? &#x27;/&#x27; + data.case : &#x27;&#x27;)]
+              time + '/' + seneca.id.substring(0, 2),
+              data.kind + (data.case ? '/' + data.case : '')]
 
-            if (&#x27;act&#x27; === data.kind) {
+            if ('act' === data.kind) {
               if (data.msg) {
-                logb.push(data.msg.meta$.id.split(&#x27;/&#x27;).map(function (s) {
+                logb.push(data.msg.meta$.id.split('/').map(function (s) {
                   return s.substring(0, 2)
-                }).join(&#x27;/&#x27;))
+                }).join('/'))
 
                 logb.push(data.msg.meta$.pattern)
               }
 
               logb.push(Util.inspect(seneca.util.clean(data.result || data.msg))
-                        .replace(/\s+/g, &#x27;&#x27;)
+                        .replace(/\s+/g, '')
                         .substring(0, 88))
 
               if (data.notice) {
                 logb.push(data.notice)
               }
 
-              if (&#x27;ERR&#x27; === data.case) {
-                logb.push(&#x27;\n\n&#x27; + data.err.stack + &#x27;\n&#x27; + data.caller + &#x27;\n&#x27;)
+              if ('ERR' === data.case) {
+                logb.push('\n\n' + data.err.stack + '\n' + data.caller + '\n')
               }
             }
-            else if (&#x27;add&#x27; === data.kind) {
+            else if ('add' === data.kind) {
               logb.push(data.pattern)
             }
-            else if (&#x27;plugin&#x27; === data.kind) {
+            else if ('plugin' === data.kind) {
               logb.push(data.plugin_name +
-                        (data.plugin_tag ? &#x27;/&#x27; + data.plugin_tag : &#x27;&#x27;))
+                        (data.plugin_tag ? '/' + data.plugin_tag : ''))
             }
-            else if (&#x27;options&#x27; === data.kind) {
+            else if ('options' === data.kind) {
             }
-            else if (&#x27;notice&#x27; === data.kind) {
+            else if ('notice' === data.kind) {
               logb.push(data.notice)
             }
             else {
-              logb.push(Util.inspect(data).replace(/\n/g, &#x27; &#x27;))
+              logb.push(Util.inspect(data).replace(/\n/g, ' '))
             }
 
-            logstr = logb.join(&#x27;\t&#x27;)
+            logstr = logb.join('\t')
           }
           else {
             logstr = Util.inspect(data, {depth: null})
             logstr =
-              time + &#x27;:\n\t&#x27; +
-              logstr.replace(/\n/g, &#x27;\n\t&#x27;) +
-              &#x27;\n------------------------------------------------\n\n&#x27;
+              time + ':\n\t' +
+              logstr.replace(/\n/g, '\n\t') +
+              '\n------------------------------------------------\n\n'
           }
 
           console.log(logstr)
@@ -2726,11 +2719,11 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
 
 
   function prepare (basemodule, defaults, initial) {
-    var DEFAULT_OPTIONS_FILE = &#x27;./seneca.options.js&#x27;
-    var FATAL_OPTIONS_FILE = &#x27;./options.seneca.js&#x27;
+    var DEFAULT_OPTIONS_FILE = './seneca.options.js'
+    var FATAL_OPTIONS_FILE = './options.seneca.js'
 
     // Load from custom file, either by providing a string,
-    // or having a property &#x27;from&#x27; that is a string.
+    // or having a property 'from' that is a string.
     // The string is interpreted as a file path.
 
     var from = initial.from
@@ -2748,7 +2741,7 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
 
 
     if (Fs.existsSync(FATAL_OPTIONS_FILE)) {
-      throw error(&#x27;inverted_file_name&#x27;, {
+      throw error('inverted_file_name', {
         from: FATAL_OPTIONS_FILE, module: basemodule
       })
     }
@@ -2757,14 +2750,14 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
       sourcemap.default_file = basemodule.require(DEFAULT_OPTIONS_FILE)
     }
     catch (e) {
-      if (e.code !== &#x27;MODULE_NOT_FOUND&#x27;) {
+      if (e.code !== 'MODULE_NOT_FOUND') {
         var wrappedError = {
           errmsg: e.message,
           from: DEFAULT_OPTIONS_FILE,
           module: basemodule
         }
 
-        throw error(e, &#x27;require_default_options&#x27;, wrappedError)
+        throw error(e, 'require_default_options', wrappedError)
       }
     }
 
@@ -2778,7 +2771,7 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
         sourcemap.argv = argv.seneca.options
       }
       else if (_.isString(argv.seneca.options)) {
-        if (argv.seneca.options === &#x27;print&#x27;) {
+        if (argv.seneca.options === 'print') {
           sourcemap.argv = { debug: {print: {options: true}} }
         }
         else {
@@ -2792,7 +2785,7 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
       }
 
       if (null != argv.seneca.tag) {
-        sourcemap.argv.tag = &#x27;&#x27; + argv.seneca.tag
+        sourcemap.argv.tag = '' + argv.seneca.tag
       }
 
       if (argv.seneca.log) {
@@ -2841,7 +2834,7 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
     if (_.isObject(logSpec)) {
       parsedSpec.log = {}
       var logType = Object.keys(logSpec.level || logSpec)
-      if (logType.length &#x3e; 0) {
+      if (logType.length &gt; 0) {
         parsedSpec.log = { level: logType[0] }
       }
     }
@@ -2849,9 +2842,9 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
 
 
   function set_options (input) {
-    if (null == input) throw error(&#x27;no_options&#x27;)
+    if (null == input) throw error('no_options')
 
-    // DEPRECATED: Remove when Seneca &#x3e;= 4.x
+    // DEPRECATED: Remove when Seneca &gt;= 4.x
     if (_.isString(input)) {
       options = prepare(basemodule, defaults, input)
     }
@@ -2918,13 +2911,13 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
       data.plugin_tag = plugin.tag
     })
 
-  delegate.die = Common.makedie(delegate, { type: &#x27;plugin&#x27;, plugin: plugin.name })
+  delegate.die = Common.makedie(delegate, { type: 'plugin', plugin: plugin.name })
 
   var actmetalist = []
 
   delegate.add = function () {
     var argsarr = new Array(arguments.length)
-    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+    for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
     var actmeta = argsarr[argsarr.length - 1] || {}
 
@@ -2933,8 +2926,8 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
       argsarr.push(actmeta)
     }
 
-    actmeta.plugin_name = plugin.name || &#x27;-&#x27;
-    actmeta.plugin_tag = plugin.tag || &#x27;-&#x27;
+    actmeta.plugin_name = plugin.name || '-'
+    actmeta.plugin_tag = plugin.tag || '-'
     actmeta.plugin_fullname = plugin.fullname
 
     // TODO: is this necessary?
@@ -2948,21 +2941,21 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
   }
 
   delegate.__update_plugin__ = function (plugin) {
-    delegate.context.name = plugin.name || &#x27;-&#x27;
-    delegate.context.tag = plugin.tag || &#x27;-&#x27;
-    delegate.context.full = plugin.fullname || &#x27;-&#x27;
+    delegate.context.name = plugin.name || '-'
+    delegate.context.tag = plugin.tag || '-'
+    delegate.context.full = plugin.fullname || '-'
 
     _.each(actmetalist, function (actmeta) {
-      actmeta.plugin_name = plugin.name || actmeta.plugin_name || &#x27;-&#x27;
-      actmeta.plugin_tag = plugin.tag || actmeta.plugin_tag || &#x27;-&#x27;
+      actmeta.plugin_name = plugin.name || actmeta.plugin_name || '-'
+      actmeta.plugin_tag = plugin.tag || actmeta.plugin_tag || '-'
       actmeta.plugin_fullname =
-        plugin.fullname || actmeta.plugin_fullname || &#x27;-&#x27;
+        plugin.fullname || actmeta.plugin_fullname || '-'
     })
   }
 
   delegate.context.module = plugin.parent || module
-  delegate.context.name = plugin.name || &#x27;-&#x27;
-  delegate.context.tag = plugin.tag || &#x27;-&#x27;
+  delegate.context.name = plugin.name || '-'
+  delegate.context.tag = plugin.tag || '-'
   delegate.context.full = plugin.fullname
   delegate.context.isplugin = true
 
@@ -2970,13 +2963,13 @@ so.tag = so.tag === &#x27;undefined&#x27; ? option_defaults.tag : so.tag
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 var pins = config.pins ||
-      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+      (_.isArray(config.pin) ? config.pin : [config.pin || ''])
 
 pins = _.map(pins, function (pin) {
   return _.isString(pin) ? Jsonic(pin) : pin
 })
 
-var sd = Plugins.<span class="apidocCodeKeywordSpan">make_delegate</span>(self, { name: &#x27;client$&#x27;, tag: void 0 })
+var sd = Plugins.<span class="apidocCodeKeywordSpan">make_delegate</span>(self, { name: 'client$', tag: void 0 })
 
 var sendclient
 
@@ -3006,7 +2999,7 @@ var transport_client = function transport_client (msg, done) {
     preload = _.isFunction(preload) ? preload : _.noop
     var meta = preload.call(seneca, plugin) || {}
 
-    var fullname = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+    var fullname = plugin.name + (plugin.tag ? '/' + plugin.tag : '')
     plugin.fullname = fullname
 
     var delegate = make_delegate(seneca, plugin)
@@ -3014,8 +3007,8 @@ var transport_client = function transport_client (msg, done) {
     seq++
 
     var plugin_define_pattern = {
-      role: &#x27;seneca&#x27;,
-      plugin: &#x27;define&#x27;,
+      role: 'seneca',
+      plugin: 'define',
       name: plugin.name,
       seq: seq
     }
@@ -3028,8 +3021,8 @@ var transport_client = function transport_client (msg, done) {
     delegate
       .add(plugin_define_pattern, plugin_definition)
       .act({
-        role: &#x27;seneca&#x27;,
-        plugin: &#x27;define&#x27;,
+        role: 'seneca',
+        plugin: 'define',
         name: plugin.name,
         tag: plugin.tag,
         seq: seq,
@@ -3041,7 +3034,7 @@ var transport_client = function transport_client (msg, done) {
 
     // needed for seneca.export to operate for plugins like seneca-web
     var preloadName = meta.name || plugin.name
-    var preloadRef = preloadName + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+    var preloadRef = preloadName + (plugin.tag ? '/' + plugin.tag : '')
     seneca.private$.exports[preloadName] = meta.export || plugin
 
     resolve_plugin_exports(seneca, preloadRef, meta)
@@ -3056,8 +3049,8 @@ var transport_client = function transport_client (msg, done) {
       seneca.options(seneca_options)
 
       plugin_seneca.log.debug({
-        kind: &#x27;plugin&#x27;,
-        case: &#x27;init&#x27;,
+        kind: 'plugin',
+        case: 'init',
         name: plugin.name,
         tag: plugin.tag,
         options: plugin_options,
@@ -3081,15 +3074,15 @@ var transport_client = function transport_client (msg, done) {
       plugin.tag =
         meta.tag ||
         plugin.tag ||
-        (plugin.options &#x26;&#x26; plugin.options.tag$)
+        (plugin.options &amp;&amp; plugin.options.tag$)
 
-      plugin.fullname = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+      plugin.fullname = plugin.name + (plugin.tag ? '/' + plugin.tag : '')
 
       plugin.service = meta.service || plugin.service
 
       plugin_seneca.__update_plugin__(plugin)
 
-      var pluginref = plugin.name + (plugin.tag ? &#x27;/&#x27; + plugin.tag : &#x27;&#x27;)
+      var pluginref = plugin.name + (plugin.tag ? '/' + plugin.tag : '')
       seneca.private$.plugins[pluginref] = plugin
 
       seneca.private$.plugin_order.byname.push(plugin.name)
@@ -3100,8 +3093,8 @@ var transport_client = function transport_client (msg, done) {
       var exports = resolve_plugin_exports(plugin_seneca, pluginref, meta)
 
       plugin_seneca.log.debug({
-        kind: &#x27;plugin&#x27;,
-        case: &#x27;install&#x27;,
+        kind: 'plugin',
+        case: 'install',
         name: plugin.name,
         tag: plugin.tag,
         exports: exports
@@ -3117,31 +3110,31 @@ var transport_client = function transport_client (msg, done) {
         },
         function (err, out) {
           if (err) {
-            var plugin_err_code = &#x27;plugin_init&#x27;
+            var plugin_err_code = 'plugin_init'
 
             plugin.plugin_error = err.message
 
-            if (err.code === &#x27;action-timeout&#x27;) {
-              plugin_err_code = &#x27;plugin_init_timeout&#x27;
+            if (err.code === 'action-timeout') {
+              plugin_err_code = 'plugin_init_timeout'
               plugin.timeout = so.timeout
             }
 
             return plugin_seneca.die(internals.error(err, plugin_err_code, plugin))
           }
 
-          var fullname = plugin.name + (plugin.tag ? &#x27;$&#x27; + plugin.tag : &#x27;&#x27;)
+          var fullname = plugin.name + (plugin.tag ? '$' + plugin.tag : '')
 
-          if (so.debug.print &#x26;&#x26; so.debug.print.options) {
-            console.log(&#x27;\nSeneca Options (&#x27; + seneca.id + &#x27;): plugin: &#x27; +
-                        fullname + &#x27;\n&#x27; +
-                        &#x27;===\n&#x27;)
+          if (so.debug.print &amp;&amp; so.debug.print.options) {
+            console.log('\nSeneca Options (' + seneca.id + '): plugin: ' +
+                        fullname + '\n' +
+                        '===\n')
             console.log(Util.inspect(plugin_options, { depth: null }))
-            console.log(&#x27;&#x27;)
+            console.log('')
           }
 
           plugin_seneca.log.debug({
-            kind: &#x27;plugin&#x27;,
-            case: &#x27;ready&#x27;,
+            kind: 'plugin',
+            case: 'ready',
             name: plugin.name,
             t ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -3221,25 +3214,25 @@ root.delegate = api_delegate
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function print_options(options) {
   if (options.debug.print.options) {
-    console.log(&#x27;\nSeneca Options (&#x27; + root.id + &#x27;): before plugins\n&#x27; + &#x27;===\n&#x27;)
+    console.log('\nSeneca Options (' + root.id + '): before plugins\n' + '===\n')
     console.log(Util.inspect(options, { depth: null }))
-    console.log(&#x27;&#x27;)
+    console.log('')
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 var seneca = make_seneca(initial_options)
 var options = seneca.options()
 
-// The &#x27;internal&#x27; key of options is reserved for objects and functions
+// The 'internal' key of options is reserved for objects and functions
 // that provide functionality, and are thus not really printable
-seneca.log.debug({kind: &#x27;notice&#x27;, options: _.omit(options, [&#x27;internal&#x27;])})
+seneca.log.debug({kind: 'notice', options: _.omit(options, ['internal'])})
 
 Print.<span class="apidocCodeKeywordSpan">print_options</span>(options)
 
 // TODO: these are core API and should not be decorations
-seneca.decorate(&#x27;hasplugin&#x27;, Plugins.api_decorations.hasplugin)
-seneca.decorate(&#x27;findplugin&#x27;, Plugins.api_decorations.findplugin)
-seneca.decorate(&#x27;plugins&#x27;, Plugins.api_decorations.plugins)
+seneca.decorate('hasplugin', Plugins.api_decorations.hasplugin)
+seneca.decorate('findplugin', Plugins.api_decorations.findplugin)
+seneca.decorate('plugins', Plugins.api_decorations.plugins)
 
 // Register default plugins, unless turned off by options.
 ...</pre></li>
@@ -3261,27 +3254,27 @@ seneca.decorate(&#x27;plugins&#x27;, Plugins.api_decorations.plugins)
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function top_test() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
-  var instance = module.exports({test: true, log: &#x27;test&#x27;})
+  var instance = module.exports({test: true, log: 'test'})
   instance.test.apply(instance, argsarr)
 
   return instance
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
 var instance = module.exports()
 
 return instance.use.apply(instance, argsarr)
 }
 
-// Makes require(&#x27;seneca&#x27;).<span class="apidocCodeKeywordSpan">test</span>() work.
+// Makes require('seneca').<span class="apidocCodeKeywordSpan">test</span>() work.
 module.exports.test = function top_test () {
 var argsarr = new Array(arguments.length)
-for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
-var instance = module.exports({test: true, log: &#x27;test&#x27;})
+var instance = module.exports({test: true, log: 'test'})
 instance.test.apply(instance, argsarr)
 ...</pre></li>
     </ul>
@@ -3305,7 +3298,7 @@ instance.test.apply(instance, argsarr)
     {},
     err.details,
     {
-      message: (err.eraro &#x26;&#x26; err.orig) ? err.orig.message : err.message,
+      message: (err.eraro &amp;&amp; err.orig) ? err.orig.message : err.message,
       pattern: actmeta.pattern,
       fn: actmeta.func,
       cb: cb,
@@ -3316,7 +3309,7 @@ instance.test.apply(instance, argsarr)
 }
 
 // Special legacy case for seneca-perm
-else if (err.orig &#x26;&#x26;
+else if (err.orig &amp;&amp;
 ...</pre></li>
     </ul>
 
@@ -3337,12 +3330,12 @@ else if (err.orig &#x26;&#x26;
     <li>description and source-code<pre class="apidocCodePre">client = function (callpoint) {
   return function api_client () {
     var argsarr = new Array(arguments.length)
-    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+    for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
     var self = this
 
     self.log.debug({
-      kind: &#x27;client&#x27;,
+      kind: 'client',
       options: argsarr,
       callpoint: callpoint()
     })
@@ -3359,13 +3352,13 @@ else if (err.orig &#x26;&#x26;
     config.id = config.id || Common.pattern(raw_config)
 
     var pins = config.pins ||
-          (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+          (_.isArray(config.pin) ? config.pin : [config.pin || ''])
 
     pins = _.map(pins, function (pin) {
       return _.isString(pin) ? Jsonic(pin) : pin
     })
 
-    var sd = Plugins.make_delegate(self, { name: &#x27;client$&#x27;, tag: void 0 })
+    var sd = Plugins.make_delegate(self, { name: 'client$', tag: void 0 })
 
     var sendclient
 
@@ -3396,15 +3389,15 @@ else if (err.orig &#x26;&#x26;
 
     // Create client.
     sd.act(
-      &#x27;role:transport,cmd:client&#x27;,
+      'role:transport,cmd:client',
       { config: config, gate$: true },
       function (err, liveclient) {
         if (err) {
-          return sd.die(internals.error(err, &#x27;transport_client&#x27;, config))
+          return sd.die(internals.error(err, 'transport_client', config))
         }
 
         if (liveclient === null) {
-          return sd.die(internals.error(&#x27;transport_client_null&#x27;,
+          return sd.die(internals.error('transport_client_null',
                                         Common.clean(config)))
         }
 
@@ -3419,17 +3412,17 @@ else if (err.orig &#x26;&#x26;
 
 Seneca()
 .use(local)
-.act(&#x27;cmd:run&#x27;, handler)
+.act('cmd:run', handler)
 
 Seneca()
-.<span class="apidocCodeKeywordSpan">client</span>({port: 8270, pin: &#x27;cmd:run&#x27;})
-.client({port: 8260, pin: &#x27;cmd:run&#x27;})
+.<span class="apidocCodeKeywordSpan">client</span>({port: 8270, pin: 'cmd:run'})
+.client({port: 8260, pin: 'cmd:run'})
 .use(local)
-.act(&#x27;cmd:run&#x27;, handler)
+.act('cmd:run', handler)
 
 Seneca()
-.client({port: 8260, pin: &#x27;cmd:run&#x27;})
-.client({port: 8270, pin: &#x27;cmd:run&#x27;})
+.client({port: 8260, pin: 'cmd:run'})
+.client({port: 8270, pin: 'cmd:run'})
 ...</pre></li>
     </ul>
 
@@ -3445,16 +3438,16 @@ Seneca()
     <li>description and source-code<pre class="apidocCodePre">listen = function (callpoint) {
   return function api_listen () {
     var argsarr = new Array(arguments.length)
-    for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+    for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
     var self = this
     var lastArg = _.last(argsarr)
-    if (typeof lastArg === &#x27;function&#x27;) {
+    if (typeof lastArg === 'function') {
       argsarr.pop()
     }
 
     self.log.debug({
-      kind: &#x27;listen&#x27;,
+      kind: 'listen',
       options: argsarr,
       callpoint: callpoint()
     })
@@ -3463,14 +3456,14 @@ Seneca()
     var config = internals.resolveConfig(internals.parse_config(argsarr), opts)
 
     self.act(
-      &#x27;role:transport,cmd:listen&#x27;,
+      'role:transport,cmd:listen',
       { config: config, gate$: true },
       function (err, result) {
         if (err) {
-          return self.die(internals.error(err, &#x27;transport_listen&#x27;, config))
+          return self.die(internals.error(err, 'transport_listen', config))
         }
 
-        if (typeof lastArg === &#x27;function&#x27;) {
+        if (typeof lastArg === 'function') {
           lastArg(null, result)
           lastArg = _.noop
         }
@@ -3487,7 +3480,7 @@ Seneca()
 
 Seneca()
   .use(approver)
-  .<span class="apidocCodeKeywordSpan">listen</span>({type: &#x27;http&#x27;, port: &#x27;8260&#x27;, pin: &#x27;cmd:*&#x27;})
+  .<span class="apidocCodeKeywordSpan">listen</span>({type: 'http', port: '8260', pin: 'cmd:*'})
 
 Seneca()
   .use(rejector)
@@ -3514,7 +3507,7 @@ Seneca()
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function top_use() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   var instance = module.exports()
 
@@ -3529,7 +3522,7 @@ Seneca()
 
 Seneca()
 .<span class="apidocCodeKeywordSpan">use</span>(approver)
-.listen({type: &#x27;http&#x27;, port: &#x27;8260&#x27;, pin: &#x27;cmd:*&#x27;})
+.listen({type: 'http', port: '8260', pin: 'cmd:*'})
 
 Seneca()
 .use(rejector)
@@ -3555,12 +3548,12 @@ Seneca()
   omits = _.isArray(omits) ? omits
     : _.isObject(omits) ? _.keys(omits)
     : _.isString(omits) ? omits.split(/\s*,\s*/)
-    : &#x27;&#x27; + omits
+    : '' + omits
 
   // a little pre omit to avoid entities named in omits
   var usedargs = _.omit(args, omits)
 
-  // don&#x27;t support $ args
+  // don't support $ args
   usedargs = clean(usedargs)
 
   return _.omit(deepextend(defaults, usedargs, fixed), omits)
@@ -3581,21 +3574,21 @@ Seneca()
   if (obj === null) return obj
 
   return _.pickBy(obj, function (val, prop) {
-    return !_.includes(prop, &#x27;$&#x27;)
+    return !_.includes(prop, '$')
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // See [`seneca.add`](#seneca.add)
   function api_add () {
 var self = this
-var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+var args = Common.parsePattern(self, arguments, 'action:f? actmeta:o?')
 
 var raw_pattern = args.pattern
 
 var pattern = self.util.<span class="apidocCodeKeywordSpan">clean</span>(raw_pattern)
 
 if (!_.keys(pattern)) {
-  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+  throw error('add_empty_pattern', {args: Common.clean(args)})
 }
 
 
@@ -3616,7 +3609,7 @@ var action = args.action || function default_action (msg, done) {
   var copy
 
   // Handle the 3 simple types, and null or undefined
-  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+  if (obj === null || typeof obj !== 'object') return obj
 
   // Handle Date
   if (_.isDate(obj)) {
@@ -3628,7 +3621,7 @@ var action = args.action || function default_action (msg, done) {
   // Handle Array
   if (_.isArray(obj)) {
     copy = []
-    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+    for (var i = 0, len = obj.length; i &lt; len; ++i) {
       copy[i] = copydata(obj[i])
     }
     return copy
@@ -3643,7 +3636,7 @@ var action = args.action || function default_action (msg, done) {
     return copy
   }
 
-  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+  throw new Error("Unable to copy obj! Its type isn't supported.")
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 function action_options_get (args, done) {
@@ -3675,7 +3668,7 @@ _.each(so.internal.close_signals, function (active, signal) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function deepextend() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   // Lodash uses the reverse order to apply defaults than the deepextend API.
   argsarr = argsarr.reverse()
@@ -3701,7 +3694,7 @@ private$.logger = load_logger(root, so.internal.logger)
 root.log = make_log(root, default_log_modifier)
 
 
-// Error events are fatal, unless you&#x27;re undead.  These are not the
+// Error events are fatal, unless you're undead.  These are not the
 ...</pre></li>
     </ul>
 
@@ -3735,7 +3728,7 @@ root.log = make_log(root, default_log_modifier)
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
   args =
-    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+    Norma('{strargs:s? objargs:o? moreobjargs:o? ' + (normaspec || '') + '}', args)
 
   try {
     return _.extend(
@@ -3753,7 +3746,7 @@ root.log = make_log(root, default_log_modifier)
   }
   catch (e) {
     var col = (e.line === 1) ? e.column - 1 : e.column
-    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+    throw internals.error('add_string_pattern_syntax', {
       argstr: args,
       syntax: e.message,
       line: e.line,
@@ -3781,14 +3774,14 @@ root.log = make_log(root, default_log_modifier)
   patobj = patobj || {}
   var sb = []
   _.each(patobj, function (v, k) {
-    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
-      sb.push(k + &#x27;:&#x27; + v)
+    if (!~k.indexOf('$') &amp;&amp; !_.isFunction(v)) {
+      sb.push(k + ':' + v)
     }
   })
 
   sb.sort()
 
-  return sb.join(&#x27;,&#x27;)
+  return sb.join(',')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       handle_sub(args, result)
@@ -3823,7 +3816,7 @@ root.log = make_log(root, default_log_modifier)
   else if (_.isArray(inpin)) {
     var pin = _.map(inpin, pincanon)
     pin.sort()
-    return pin.join(&#x27;;&#x27;)
+    return pin.join(';')
   }
   else {
     return pattern(inpin)
@@ -3844,7 +3837,7 @@ var config = internals.resolveConfig(raw_config, opts)
 config.id = config.id || Common.pattern(raw_config)
 
 var pins = config.pins ||
-      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+      (_.isArray(config.pin) ? config.pin : [config.pin || ''])
 ...</pre></li>
     </ul>
 
@@ -3858,7 +3851,7 @@ var pins = config.pins ||
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
-  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  if (err) { console.log('ERROR: ' + err.message) }
   else { console.log(Util.inspect(out, {depth: null})) }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3931,12 +3924,12 @@ var pins = config.pins ||
   omits = _.isArray(omits) ? omits
     : _.isObject(omits) ? _.keys(omits)
     : _.isString(omits) ? omits.split(/\s*,\s*/)
-    : &#x27;&#x27; + omits
+    : '' + omits
 
   // a little pre omit to avoid entities named in omits
   var usedargs = _.omit(args, omits)
 
-  // don&#x27;t support $ args
+  // don't support $ args
   usedargs = clean(usedargs)
 
   return _.omit(deepextend(defaults, usedargs, fixed), omits)
@@ -3962,21 +3955,21 @@ var pins = config.pins ||
   if (obj === null) return obj
 
   return _.pickBy(obj, function (val, prop) {
-    return !_.includes(prop, &#x27;$&#x27;)
+    return !_.includes(prop, '$')
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // See [`seneca.add`](#seneca.add)
   function api_add () {
 var self = this
-var args = Common.parsePattern(self, arguments, &#x27;action:f? actmeta:o?&#x27;)
+var args = Common.parsePattern(self, arguments, 'action:f? actmeta:o?')
 
 var raw_pattern = args.pattern
 
 var pattern = self.util.<span class="apidocCodeKeywordSpan">clean</span>(raw_pattern)
 
 if (!_.keys(pattern)) {
-  throw error(&#x27;add_empty_pattern&#x27;, {args: Common.clean(args)})
+  throw error('add_empty_pattern', {args: Common.clean(args)})
 }
 
 
@@ -4002,7 +3995,7 @@ var action = args.action || function default_action (msg, done) {
   var copy
 
   // Handle the 3 simple types, and null or undefined
-  if (obj === null || typeof obj !== &#x27;object&#x27;) return obj
+  if (obj === null || typeof obj !== 'object') return obj
 
   // Handle Date
   if (_.isDate(obj)) {
@@ -4014,7 +4007,7 @@ var action = args.action || function default_action (msg, done) {
   // Handle Array
   if (_.isArray(obj)) {
     copy = []
-    for (var i = 0, len = obj.length; i &#x3c; len; ++i) {
+    for (var i = 0, len = obj.length; i &lt; len; ++i) {
       copy[i] = copydata(obj[i])
     }
     return copy
@@ -4029,7 +4022,7 @@ var action = args.action || function default_action (msg, done) {
     return copy
   }
 
-  throw new Error(&#x22;Unable to copy obj! Its type isn&#x27;t supported.&#x22;)
+  throw new Error("Unable to copy obj! Its type isn't supported.")
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 function action_options_get (args, done) {
@@ -4066,7 +4059,7 @@ _.each(so.internal.close_signals, function (active, signal) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function deepextend() {
   var argsarr = new Array(arguments.length)
-  for (var l = 0; l &#x3c; argsarr.length; ++l) { argsarr[l] = arguments[l] }
+  for (var l = 0; l &lt; argsarr.length; ++l) { argsarr[l] = arguments[l] }
 
   // Lodash uses the reverse order to apply defaults than the deepextend API.
   argsarr = argsarr.reverse()
@@ -4092,7 +4085,7 @@ private$.logger = load_logger(root, so.internal.logger)
 root.log = make_log(root, default_log_modifier)
 
 
-// Error events are fatal, unless you&#x27;re undead.  These are not the
+// Error events are fatal, unless you're undead.  These are not the
 ...</pre></li>
     </ul>
 
@@ -4136,7 +4129,7 @@ root.log = make_log(root, default_log_modifier)
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse_pattern(instance, args, normaspec, fixed) {
   args =
-    Norma(&#x27;{strargs:s? objargs:o? moreobjargs:o? &#x27; + (normaspec || &#x27;&#x27;) + &#x27;}&#x27;, args)
+    Norma('{strargs:s? objargs:o? moreobjargs:o? ' + (normaspec || '') + '}', args)
 
   try {
     return _.extend(
@@ -4154,7 +4147,7 @@ root.log = make_log(root, default_log_modifier)
   }
   catch (e) {
     var col = (e.line === 1) ? e.column - 1 : e.column
-    throw internals.error(&#x27;add_string_pattern_syntax&#x27;, {
+    throw internals.error('add_string_pattern_syntax', {
       argstr: args,
       syntax: e.message,
       line: e.line,
@@ -4187,14 +4180,14 @@ root.log = make_log(root, default_log_modifier)
   patobj = patobj || {}
   var sb = []
   _.each(patobj, function (v, k) {
-    if (!~k.indexOf(&#x27;$&#x27;) &#x26;&#x26; !_.isFunction(v)) {
-      sb.push(k + &#x27;:&#x27; + v)
+    if (!~k.indexOf('$') &amp;&amp; !_.isFunction(v)) {
+      sb.push(k + ':' + v)
     }
   })
 
   sb.sort()
 
-  return sb.join(&#x27;,&#x27;)
+  return sb.join(',')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       handle_sub(args, result)
@@ -4234,7 +4227,7 @@ root.log = make_log(root, default_log_modifier)
   else if (_.isArray(inpin)) {
     var pin = _.map(inpin, pincanon)
     pin.sort()
-    return pin.join(&#x27;;&#x27;)
+    return pin.join(';')
   }
   else {
     return pattern(inpin)
@@ -4255,7 +4248,7 @@ var config = internals.resolveConfig(raw_config, opts)
 config.id = config.id || Common.pattern(raw_config)
 
 var pins = config.pins ||
-      (_.isArray(config.pin) ? config.pin : [config.pin || &#x27;&#x27;])
+      (_.isArray(config.pin) ? config.pin : [config.pin || ''])
 ...</pre></li>
     </ul>
 
@@ -4274,7 +4267,7 @@ var pins = config.pins ||
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function print(err, out) {
-  if (err) { console.log(&#x27;ERROR: &#x27; + err.message) }
+  if (err) { console.log('ERROR: ' + err.message) }
   else { console.log(Util.inspect(out, {depth: null})) }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4348,3 +4341,4 @@ var pins = config.pins ||
     ]
 </div>
 </div>
+</body></html>
