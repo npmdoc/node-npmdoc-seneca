@@ -1,6 +1,6 @@
 # npmdoc-seneca
 
-#### api documentation for  [seneca (v3.3.0)](http://senecajs.org)  [![npm package](https://img.shields.io/npm/v/npmdoc-seneca.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-seneca) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-seneca.svg)](https://travis-ci.org/npmdoc/node-npmdoc-seneca)
+#### basic api documentation for  [seneca (v3.3.0)](http://senecajs.org)  [![npm package](https://img.shields.io/npm/v/npmdoc-seneca.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-seneca) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-seneca.svg)](https://travis-ci.org/npmdoc/node-npmdoc-seneca)
 
 #### A Microservices Framework for Node.js
 
@@ -249,7 +249,8 @@
         "smoke": "node test/stubs/launch.js",
         "test": "lab -v -P test -L -t 80"
     },
-    "version": "3.3.0"
+    "version": "3.3.0",
+    "bin": {}
 }
 ```
 
